@@ -1,8 +1,8 @@
 class ItemType {
-  static String language = 'language';
-  static String theme = 'theme';
-  static String guideIsDone = 'guideIsDone';
-  static String ownerId = 'ownerId';
-  static String accessToken = 'accessToken';
-  static String refreshToken = 'refreshToken';
+  static const String language = 'language';
+  static const String theme = 'theme';
+  static const String guideIsDone = 'guideIsDone';
+  static const String ownerId = 'ownerId';
+  static const String accessToken = 'accessToken';
+  static const String refreshToken = 'refreshToken';
 }
