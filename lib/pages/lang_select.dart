@@ -22,7 +22,7 @@ class _LangSelectState extends State<LangSelect> {
               child: Text('Select Language'),
             ),
             Center(
-              child: Text('Configure your PetID, by selecting app language. \n*If you understand this, you are on the right way*'),
+              child: Text('Configure your PetID, by selecting app language.\n*If you understand this, you are on the right way*'),
             )
           ],
         ),
