@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pet_id_mobile/core/pet_id_dark_colors.dart';
+import 'package:pet_id_mobile/colors/app_palette.dart';
+import 'package:pet_id_mobile/colors/dark_palette.dart';
 
 class LangSelect extends StatefulWidget {
   const LangSelect({super.key});
@@ -13,18 +14,18 @@ class _LangSelectState extends State<LangSelect> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: SizedBox(
         width: double.infinity,
         child: Column(
           children: [
-            SizedBox(height: 128),
+            const SizedBox(height: 128),
             Center(
               child: Text('Select Language', style: TextStyle(
                 fontSize: 42,
                 wordSpacing: -0.01,
                 fontWeight: FontWeight.w800,
-                color: PetIdDarkColors.primary
+                color: AppPalette.currentPalette.primary,
               )),
             ),
             Center(
@@ -32,7 +33,7 @@ class _LangSelectState extends State<LangSelect> {
                 fontSize: 12,
                 wordSpacing: -0.02,
                 fontWeight: FontWeight.normal,
-                color: PetIdDarkColors.accent
+                color: AppPalette.currentPalette.accent
               )),
             )
           ],
