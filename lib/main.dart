@@ -20,6 +20,7 @@ class _AppLoaderState extends State<AppLoader> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'PetID',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: 'Nunito',
         colorScheme: ColorScheme.fromSeed(seedColor: PetIdLightColors.primary),
