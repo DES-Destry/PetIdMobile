@@ -21,11 +21,13 @@ class _AppLoaderState extends State<AppLoader> {
     return MaterialApp(
       title: 'PetID',
       theme: ThemeData(
+        fontFamily: 'Nunito',
         colorScheme: ColorScheme.fromSeed(seedColor: PetIdLightColors.primary),
         scaffoldBackgroundColor: PetIdLightColors.background,
         useMaterial3: true,
       ),
       darkTheme: ThemeData(
+        fontFamily: 'Nunito',
         colorScheme: ColorScheme.fromSeed(seedColor: PetIdDarkColors.primary),
         scaffoldBackgroundColor: PetIdDarkColors.background,
         useMaterial3: true,
