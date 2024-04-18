@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pet_id_mobile/core/pet_id_dark_colors.dart';
 import 'package:pet_id_mobile/core/pet_id_light_colors.dart';
+import 'package:pet_id_mobile/pages/lang_select.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
@@ -33,6 +34,7 @@ class _AppLoaderState extends State<AppLoader> {
         scaffoldBackgroundColor: PetIdDarkColors.background,
         useMaterial3: true,
       ),
+      home: const LangSelect(),
     );
   }
 
