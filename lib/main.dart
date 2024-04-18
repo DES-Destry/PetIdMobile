@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pet_id_mobile/core/pet_id_dark_colors.dart';
 import 'package:pet_id_mobile/core/pet_id_light_colors.dart';
 import 'package:pet_id_mobile/pages/lang_select.dart';
+import 'package:pet_id_mobile/storage/storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
@@ -16,6 +17,17 @@ class AppLoader extends StatefulWidget {
 }
 
 class _AppLoaderState extends State<AppLoader> {
+  bool prefsLoaded = false;
+
+  @override
+  Future initState() async {
+    super.initState();
+    await Storage.init();
+
+    prefsLoaded = true;
+  }
+
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -36,9 +48,5 @@ class _AppLoaderState extends State<AppLoader> {
       ),
       home: const LangSelect(),
     );
-  }
-
-  void loadAppFromLastState() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
   }
 }
