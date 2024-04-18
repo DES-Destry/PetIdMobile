@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pet_id_mobile/colors/app_palette.dart';
-import 'package:pet_id_mobile/colors/dark_palette.dart';
 
 class LangSelect extends StatefulWidget {
   const LangSelect({super.key});
