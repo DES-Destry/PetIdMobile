@@ -49,6 +49,7 @@ class _LangSelectState extends State<LangSelect> {
             const SizedBox(height: 64),
             Flexible(
                 child: GridView.count(
+              physics: const NeverScrollableScrollPhysics(),
               crossAxisCount: 2,
               childAspectRatio: 0.9, // change this value for different results
               crossAxisSpacing: 18,
