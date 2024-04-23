@@ -31,17 +31,16 @@ class _LanguageSelectorButtonState extends State<LanguageSelectorButton> {
             border: Border.all(width: 2, color: AppPalette.currentPalette.primary),
             borderRadius: BorderRadius.circular(30),
           ),
-          child: Column(children: [
+          child: Stack(children: [
             Padding(
-              padding: const EdgeInsets.only(bottom: 14),
-              child: Center(
-                  child: Text(widget.head,
-                      style: TextStyle(
-                        fontSize: 42,
-                        fontWeight: FontWeight.w800,
-                        color: widget.isSelected ? Colors.white : AppPalette.currentPalette.primary,
-                      ))),
-            ),
+                padding: const EdgeInsets.only(bottom: 14),
+                child: Center(
+                    child: Text(widget.head,
+                        style: TextStyle(
+                          fontSize: 42,
+                          fontWeight: FontWeight.w800,
+                          color: widget.isSelected ? Colors.white : AppPalette.currentPalette.primary,
+                        )))),
             Align(
                 alignment: Alignment.bottomCenter,
                 child: Text(widget.caption ?? '',
