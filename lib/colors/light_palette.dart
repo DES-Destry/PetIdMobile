@@ -12,12 +12,12 @@ class LightPalette extends ColorPalette {
   final Color accent = const Color(0xFF828282);
 
   @override
-  final LinearGradient transparentGlass = const LinearGradient(
+  final LinearGradient transparentGlass = LinearGradient(
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
     colors: [
-      Color.fromRGBO(255, 255, 255, 128),
-      Color.fromRGBO(255, 255, 255, 64),
+      Colors.white.withOpacity(0.5),
+      Colors.white.withOpacity(0.25),
     ],
   );
 }
