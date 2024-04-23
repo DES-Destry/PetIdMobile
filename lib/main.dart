@@ -40,6 +40,7 @@ class _AppLoaderState extends State<AppLoader> {
     return MaterialApp(
       title: 'PetID',
       debugShowCheckedModeBanner: false,
+      supportedLocales: const [Locale('en'), Locale('ru'), Locale('kk')],
       theme: ThemeData(
         fontFamily: 'Nunito',
         colorScheme: ColorScheme.fromSeed(seedColor: AppPalette.currentPalette.primary),
