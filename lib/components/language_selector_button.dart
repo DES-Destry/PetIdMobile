@@ -45,7 +45,7 @@ class _LanguageSelectorButtonState extends State<LanguageSelectorButton> {
                 alignment: Alignment.bottomCenter,
                 child: Text(widget.caption ?? '',
                     style: TextStyle(
-                      fontSize: 12,
+                      fontSize: 16,
                       letterSpacing: 0.05,
                       fontWeight: FontWeight.normal,
                       color: AppPalette.currentPalette.accent,
