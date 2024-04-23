@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:pet_id_mobile/colors/app_palette.dart';
 import 'package:pet_id_mobile/components/language_selector_button.dart';
 
@@ -11,6 +12,12 @@ class LangSelect extends StatefulWidget {
 
 class _LangSelectState extends State<LangSelect> {
   String language = 'sys';
+
+  void languageSelected([String? language]) {
+    setState(() {
+      this.language = language ?? 'sys';
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,25 +57,41 @@ class _LangSelectState extends State<LangSelect> {
                 LanguageSelectorButton(
                   head: 'SYS',
                   caption: 'System default:\n',
-                  onPressed: () => {language = 'sys'},
+                  onPressed: () => {
+                    setState(() {
+                      language = 'sys';
+                    })
+                  },
                   isSelected: language == 'sys',
                 ),
                 LanguageSelectorButton(
                   head: 'EN',
                   caption: 'Hello!',
-                  onPressed: () => {language = 'en'},
+                  onPressed: () => {
+                    setState(() {
+                      language = 'en';
+                    })
+                  },
                   isSelected: language == 'en',
                 ),
                 LanguageSelectorButton(
                   head: 'KK',
                   caption: 'Салем!',
-                  onPressed: () => {language = 'kk'},
+                  onPressed: () => {
+                    setState(() {
+                      language = 'kk';
+                    })
+                  },
                   isSelected: language == 'kk',
                 ),
                 LanguageSelectorButton(
                   head: 'RU',
                   caption: 'Привет!',
-                  onPressed: () => {language = 'ru'},
+                  onPressed: () => {
+                    setState(() {
+                      language = 'ru';
+                    })
+                  },
                   isSelected: language == 'ru',
                 ),
               ],
