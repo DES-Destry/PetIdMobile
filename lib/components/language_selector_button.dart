@@ -22,18 +22,18 @@ class _LanguageSelectorButtonState extends State<LanguageSelectorButton> {
     return GestureDetector(
       onTap: widget.onPressed,
       child: Container(
-          // color: AppPalette.currentPalette.primary,
           width: 160,
           height: 180,
           decoration: BoxDecoration(
             color: widget.isSelected ? AppPalette.currentPalette.primary : null,
             gradient: !widget.isSelected ? AppPalette.currentPalette.transparentGlass : null,
             border: Border.all(width: 2, color: AppPalette.currentPalette.primary),
-            borderRadius: BorderRadius.circular(25),
+            borderRadius: BorderRadius.circular(30),
           ),
-          child: ClipRect(
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(30),
               child: BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+            filter: ImageFilter.blur(sigmaX: widget.isSelected ? 0 : 10, sigmaY: widget.isSelected ? 0 : 10),
             child: Column(children: [
               Padding(
                 padding: const EdgeInsets.only(bottom: 14),

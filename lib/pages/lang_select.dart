@@ -42,9 +42,9 @@ class _LangSelectState extends State<LangSelect> {
             Flexible(
                 child: GridView.count(
               crossAxisCount: 2,
-              childAspectRatio: 0.8, // change this value for different results
-              crossAxisSpacing: 5,
-              mainAxisSpacing: 5,
+              childAspectRatio: 0.9, // change this value for different results
+              crossAxisSpacing: 18,
+              mainAxisSpacing: 12,
               padding: const EdgeInsets.all(10.0),
               children: [
                 LanguageSelectorButton(

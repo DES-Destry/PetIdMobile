@@ -13,11 +13,11 @@ class LightPalette extends ColorPalette {
 
   @override
   final LinearGradient transparentGlass = const LinearGradient(
-    begin: Alignment.topRight,
-    end: Alignment.bottomLeft,
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
     colors: [
-      Colors.white60,
-      Colors.white70,
+      Color.fromRGBO(255, 255, 255, 128),
+      Color.fromRGBO(255, 255, 255, 64),
     ],
   );
 }
