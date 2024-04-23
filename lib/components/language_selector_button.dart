@@ -49,7 +49,7 @@ class _LanguageSelectorButtonState extends State<LanguageSelectorButton> {
                       fontSize: 16,
                       letterSpacing: 0.05,
                       fontWeight: FontWeight.normal,
-                      color: AppPalette.currentPalette.accent,
+                      color: widget.isSelected ? Colors.white : AppPalette.currentPalette.accent,
                     )))
           ]),
         ));
