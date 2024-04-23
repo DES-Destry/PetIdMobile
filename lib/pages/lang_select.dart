@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:pet_id_mobile/colors/app_palette.dart';
 import 'package:pet_id_mobile/components/language_selector_button.dart';
 
@@ -14,11 +13,11 @@ class _LangSelectState extends State<LangSelect> {
   String language = 'sys';
 
   String getLocaleFriendlyName(String locale) {
-    if (locale == 'en_US' || locale == 'en_GB') return 'English';
-    if (locale == 'ru_RU') return 'Russian';
-    if (locale == 'kk_KZ') return 'Kazakh';
+    if (locale.startsWith('en')) return 'English';
+    if (locale.startsWith('ru')) return 'Russian';
+    if (locale.startsWith('kk')) return 'Kazakh';
 
-    return 'Unknown (English)';
+    return 'Unknown\nEnglish will be used';
   }
 
   @override
