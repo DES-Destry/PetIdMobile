@@ -13,10 +13,12 @@ class LangSelect extends StatefulWidget {
 class _LangSelectState extends State<LangSelect> {
   String language = 'sys';
 
-  void languageSelected([String? language]) {
-    setState(() {
-      this.language = language ?? 'sys';
-    });
+  String getLocaleFriendlyName(String locale) {
+    if (locale == 'en_US' || locale == 'en_GB') return 'English';
+    if (locale == 'ru_RU') return 'Russian';
+    if (locale == 'kk_KZ') return 'Kazakh';
+
+    return 'Unknown (English)';
   }
 
   @override
@@ -56,7 +58,7 @@ class _LangSelectState extends State<LangSelect> {
               children: [
                 LanguageSelectorButton(
                   head: 'SYS',
-                  caption: 'System default:\n',
+                  caption: 'System default:\n${getLocaleFriendlyName(Localizations.localeOf(context).toString())}',
                   onPressed: () => {
                     setState(() {
                       language = 'sys';
