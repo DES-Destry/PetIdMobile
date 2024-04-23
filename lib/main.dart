@@ -5,40 +5,36 @@ import 'package:pet_id_mobile/pages/lang_select.dart';
 import 'package:pet_id_mobile/storage/storage.dart';
 import 'package:pet_id_mobile/storage/storage_item.dart';
 
-void main() {
-  runApp(const AppLoader());
+Future loadPrefs() async {
+  await Storage.init();
+
+  var systemBrightness = SchedulerBinding.instance.platformDispatcher.platformBrightness;
+  Brightness theme = Storage.prefs.get(StorageItem.theme) as Brightness? ?? systemBrightness;
+
+  if (theme == Brightness.light) AppPalette.light();
+  if (theme == Brightness.dark) AppPalette.dark();
+}
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await loadPrefs();
+
+  if (Storage.prefs.getString(StorageItem.language) == null) runApp(const AppLoader(initialPage: LangSelect()));
+
+  runApp(const AppLoader(initialPage: LangSelect()));
 }
 
 class AppLoader extends StatefulWidget {
-  const AppLoader({super.key});
+  final Widget initialPage;
+
+  const AppLoader({super.key, required this.initialPage});
 
   @override
   State<AppLoader> createState() => _AppLoaderState();
 }
 
 class _AppLoaderState extends State<AppLoader> {
-  bool prefsLoaded = false;
-
-  Future loadPrefs() async {
-    await Storage.init();
-
-    var systemBrightness = SchedulerBinding.instance.platformDispatcher.platformBrightness;
-    Brightness theme = Storage.prefs.get(StorageItem.theme) as Brightness? ?? systemBrightness;
-
-    if (theme == Brightness.light) AppPalette.light();
-    if (theme == Brightness.dark) AppPalette.dark();
-
-    prefsLoaded = true;
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    loadPrefs();
-  }
-
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -50,7 +46,7 @@ class _AppLoaderState extends State<AppLoader> {
         scaffoldBackgroundColor: AppPalette.currentPalette.background,
         useMaterial3: true,
       ),
-      home: const LangSelect(),
+      home: widget.initialPage,
     );
   }
 }
