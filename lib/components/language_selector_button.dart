@@ -44,10 +44,10 @@ class _LanguageSelectorButtonState extends State<LanguageSelectorButton> {
                     padding: const EdgeInsets.only(bottom: 14),
                     child: Center(
                         child: Text(widget.head,
-                            style: const TextStyle(
+                            style: TextStyle(
                               fontSize: 42,
                               fontWeight: FontWeight.w800,
-                              color: Colors.white,
+                              color: widget.isSelected ? Colors.white : AppPalette.currentPalette.primary,
                             ))),
                   ),
                   Align(
