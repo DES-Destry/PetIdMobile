@@ -40,6 +40,7 @@ class _LangSelectState extends State<LangSelect> {
             ),
             Center(
               child: Text('selectLanguageCaption'.tr(),
+                  textAlign: TextAlign.center,
                   style: TextStyle(
                       fontSize: 12,
                       letterSpacing: -0.02,
