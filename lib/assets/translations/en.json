@@ -1,4 +1,8 @@
 {
   "selectLanguage": "Select Language",
-  "selectLanguageCaption": "Configure your PetID, by selecting app language.\n*If you understand this, you are on the right way*"
+  "selectLanguageCaption": "Configure your PetID, by selecting app language.\n*If you understand this, you are on the right way*",
+
+  "buttons": {
+    "next": "Next"
+  }
 }

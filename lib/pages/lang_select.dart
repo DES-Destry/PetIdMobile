@@ -54,10 +54,10 @@ class _LangSelectState extends State<LangSelect> {
                 child: GridView.count(
               physics: const NeverScrollableScrollPhysics(),
               crossAxisCount: 2,
-              childAspectRatio: 0.9, // change this value for different results
+              childAspectRatio: 160 / 180, // change this value for different results
               crossAxisSpacing: 18,
               mainAxisSpacing: 12,
-              padding: const EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(26.0),
               children: [
                 LanguageSelectorButton(
                   head: 'SYS',
@@ -104,7 +104,17 @@ class _LangSelectState extends State<LangSelect> {
                   isSelected: language == 'ru',
                 ),
               ],
-            ))
+            )),
+            Padding(
+              padding: const EdgeInsetsDirectional.symmetric(horizontal: 32),
+              child: TextButton(
+                onPressed: () {},
+                style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all<Color>(AppPalette.currentPalette.primary),
+                    textStyle: MaterialStateProperty.all(const TextStyle(color: Colors.white))),
+                child: Text('buttons.next'.tr()),
+              ),
+            )
           ],
         ),
       ),

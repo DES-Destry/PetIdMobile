@@ -21,8 +21,6 @@ class _LanguageSelectorButtonState extends State<LanguageSelectorButton> {
     return GestureDetector(
         onTap: widget.onPressed,
         child: Container(
-          width: 160,
-          height: 180,
           decoration: BoxDecoration(
             color: widget.isSelected ? AppPalette.currentPalette.primary : null,
             gradient: !widget.isSelected ? AppPalette.currentPalette.transparentGlass : null,
@@ -31,7 +29,7 @@ class _LanguageSelectorButtonState extends State<LanguageSelectorButton> {
           ),
           child: Stack(children: [
             Padding(
-                padding: const EdgeInsets.only(bottom: 14),
+                padding: const EdgeInsets.only(bottom: 24),
                 child: Center(
                     child: Text(widget.head,
                         style: TextStyle(
@@ -44,7 +42,7 @@ class _LanguageSelectorButtonState extends State<LanguageSelectorButton> {
                 child: Text(widget.caption ?? '',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 14,
                       letterSpacing: 0.05,
                       fontWeight: FontWeight.normal,
                       color: widget.isSelected ? Colors.white : AppPalette.currentPalette.accent,
