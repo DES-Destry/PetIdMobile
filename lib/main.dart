@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:pet_id_mobile/colors/app_palette.dart';
 import 'package:pet_id_mobile/pages/lang_select.dart';
 import 'package:pet_id_mobile/storage/storage.dart';
@@ -67,6 +68,11 @@ class _AppLoaderState extends State<AppLoader> {
       title: 'PetID',
       debugShowCheckedModeBanner: false,
       locale: _locale,
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
       supportedLocales: const [Locale('en'), Locale('ru'), Locale('kk')],
       theme: ThemeData(
         fontFamily: 'Nunito',
