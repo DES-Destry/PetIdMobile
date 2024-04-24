@@ -1,8 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:pet_id_mobile/colors/app_palette.dart';
+import 'package:pet_id_mobile/pages/guide/attach_pet_page.dart';
 
 class ScanQrPage extends StatelessWidget {
+  const ScanQrPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,7 +64,9 @@ class ScanQrPage extends StatelessWidget {
                         color: Colors.white,
                       )),
                   IconButton(
-                      onPressed: () {}, iconSize: 24.0, icon: const Icon(Icons.arrow_forward_ios, color: Colors.white)),
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => const AttachPetPage()));
+                      }, iconSize: 24.0, icon: const Icon(Icons.arrow_forward_ios, color: Colors.white)),
                 ]),
               ),
             ),

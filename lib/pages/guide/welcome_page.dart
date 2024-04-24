@@ -4,6 +4,8 @@ import 'package:pet_id_mobile/colors/app_palette.dart';
 import 'package:pet_id_mobile/pages/guide/get_started_page.dart';
 
 class WelcomePage extends StatelessWidget {
+  const WelcomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,7 +63,7 @@ class WelcomePage extends StatelessWidget {
                       )),
                   IconButton(
                       onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => GetStartedPage()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => const GetStartedPage()));
                       },
                       iconSize: 24.0,
                       icon: const Icon(Icons.arrow_forward_ios, color: Colors.white)),

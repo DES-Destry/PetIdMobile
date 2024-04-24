@@ -23,8 +23,8 @@
   "scanQr": "Scan QR",
   "scanQrCaption": "QR scanning will show data about pet, that attached to this QR",
 
-  "fillData": "Attach a pet",
-  "fillDataCaption": "After first Pet ID Tag scan you be able to fill data about your lovely pet",
+  "attachPet": "Attach a pet",
+  "attachPetCaption": "After first Pet ID Tag scan you be able to fill data about your lovely pet",
 
   "buttons": {
     "next": "Next",
