@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:pet_id_mobile/colors/app_palette.dart';
 import 'package:pet_id_mobile/pages/lang_select_page.dart';
+import 'package:pet_id_mobile/pages/theme_select_page.dart';
 import 'package:pet_id_mobile/storage/storage.dart';
 import 'package:pet_id_mobile/storage/storage_item.dart';
 
@@ -48,7 +49,13 @@ void main() async {
     return;
   }
 
+  Brightness? theme = Storage.prefs.get(StorageItem.theme) as Brightness?;
+
   // Open theme page if user isn't set it
+  if (theme == null) {
+    runApp(easyLocalization(AppLoader(initialPage: const ThemeSelectPage(), localeOnStart: startLocale)));
+    return;
+  }
 
   // Open onboarding if it isn't complete yet
 
@@ -56,7 +63,7 @@ void main() async {
   // Open login page accessToken is expired or not exists at all
   // Open main page if authentication was successful
 
-  runApp(const AppLoader(initialPage: LangSelectPage()));
+  runApp(const AppLoader(initialPage: ThemeSelectPage()));
 }
 
 class AppLoader extends StatefulWidget {
