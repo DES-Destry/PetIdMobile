@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:pet_id_mobile/colors/app_palette.dart';
 
 class ThemeSelectorButton extends StatefulWidget {
