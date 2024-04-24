@@ -4,15 +4,18 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:pet_id_mobile/colors/app_palette.dart';
 import 'package:pet_id_mobile/components/language_selector_button.dart';
+import 'package:pet_id_mobile/pages/theme_select_page.dart';
+import 'package:pet_id_mobile/storage/storage.dart';
+import 'package:pet_id_mobile/storage/storage_item.dart';
 
-class LangSelect extends StatefulWidget {
-  const LangSelect({super.key});
+class LangSelectPage extends StatefulWidget {
+  const LangSelectPage({super.key});
 
   @override
-  State<LangSelect> createState() => _LangSelectState();
+  State<LangSelectPage> createState() => _LangSelectPageState();
 }
 
-class _LangSelectState extends State<LangSelect> {
+class _LangSelectPageState extends State<LangSelectPage> {
   String language = 'sys';
 
   String getLocaleFriendlyName(String locale) {
@@ -62,7 +65,7 @@ class _LangSelectState extends State<LangSelect> {
               children: [
                 LanguageSelectorButton(
                   head: 'SYS',
-                  caption: 'System default:\n${getLocaleFriendlyName(Platform.localeName)}',
+                  caption: "${'buttons.languageDefault'.tr()}\n${Platform.localeName.substring(0, 2).tr()}",
                   onPressed: () => {
                     setState(() {
                       language = 'sys';
@@ -113,7 +116,10 @@ class _LangSelectState extends State<LangSelect> {
                 width: double.infinity,
                 height: 46,
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Storage.prefs.setString(StorageItem.language, language);
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const ThemeSelectPage()));
+                  },
                   style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all<Color>(AppPalette.currentPalette.primary),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(

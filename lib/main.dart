@@ -4,7 +4,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:pet_id_mobile/colors/app_palette.dart';
-import 'package:pet_id_mobile/pages/lang_select.dart';
+import 'package:pet_id_mobile/pages/lang_select_page.dart';
 import 'package:pet_id_mobile/storage/storage.dart';
 import 'package:pet_id_mobile/storage/storage_item.dart';
 
@@ -44,7 +44,7 @@ void main() async {
 
   // Open Language page if user isn't set it
   if (localeString == null) {
-    runApp(easyLocalization(AppLoader(initialPage: const LangSelect(), localeOnStart: startLocale)));
+    runApp(easyLocalization(AppLoader(initialPage: const LangSelectPage(), localeOnStart: startLocale)));
     return;
   }
 
@@ -56,7 +56,7 @@ void main() async {
   // Open login page accessToken is expired or not exists at all
   // Open main page if authentication was successful
 
-  runApp(const AppLoader(initialPage: LangSelect()));
+  runApp(const AppLoader(initialPage: LangSelectPage()));
 }
 
 class AppLoader extends StatefulWidget {

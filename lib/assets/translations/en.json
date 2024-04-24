@@ -2,7 +2,22 @@
   "selectLanguage": "Select Language",
   "selectLanguageCaption": "Configure your PetID, by selecting app language.\n*If you understand this, you are on the right way*",
 
+  "en": "English",
+  "kk": "Kazakh",
+  "ru": "Russian",
+
+  "selectTheme": "Select Theme",
+  "selectThemeCaption": "Customize PetID app personally for you.\nUse that theme, that you want!",
+
+  "light": "Light",
+  "dark": "Dark",
+
   "buttons": {
-    "next": "Next"
+    "next": "Next",
+    "languageDefault": "System default:",
+    "light": "LIGHT",
+    "dark": "DARK",
+    "system": "SYSTEM",
+    "letsgo": "Let's go!"
   }
 }
