@@ -18,11 +18,11 @@ Future loadPrefs() async {
   if (theme == Brightness.dark) AppPalette.dark();
 }
 
-Widget easyLocalization(Widget startupWidget, Locale locale) {
+Widget easyLocalization(Widget startupWidget) {
   return EasyLocalization(
     supportedLocales: const [Locale('en'), Locale('ru'), Locale('kk')],
     path: 'lib/assets/translations',
-    fallbackLocale: locale,
+    saveLocale: true,
     child: startupWidget,
   );
 }
@@ -34,22 +34,17 @@ void main() async {
   await loadPrefs();
 
   String? localeString = Storage.prefs.getString(StorageItem.language);
-  Locale currentLocale;
+  Locale startLocale;
 
   if (localeString == 'sys') {
-    currentLocale = Locale(Platform.localeName.substring(0, 2));
+    startLocale = Locale(Platform.localeName.substring(0, 2));
   } else {
-    currentLocale = Locale(localeString ?? 'en');
+    startLocale = Locale(localeString ?? 'en');
   }
 
   // Open Language page if user isn't set it
   if (localeString == null) {
-    runApp(easyLocalization(
-        const AppLoader(
-          initialPage: LangSelect(),
-        ),
-        currentLocale));
-
+    runApp(easyLocalization(AppLoader(initialPage: const LangSelect(), localeOnStart: startLocale)));
     return;
   }
 
@@ -61,15 +56,14 @@ void main() async {
   // Open login page accessToken is expired or not exists at all
   // Open main page if authentication was successful
 
-  runApp(const AppLoader(
-    initialPage: LangSelect(),
-  ));
+  runApp(const AppLoader(initialPage: LangSelect()));
 }
 
 class AppLoader extends StatefulWidget {
   final Widget initialPage;
+  final Locale? localeOnStart;
 
-  const AppLoader({super.key, required this.initialPage});
+  const AppLoader({super.key, required this.initialPage, this.localeOnStart});
 
   @override
   State<AppLoader> createState() => _AppLoaderState();
@@ -81,7 +75,7 @@ class _AppLoaderState extends State<AppLoader> {
     return MaterialApp(
       title: 'PetID',
       debugShowCheckedModeBanner: false,
-      locale: context.locale,
+      locale: widget.localeOnStart ?? context.locale,
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       theme: ThemeData(
