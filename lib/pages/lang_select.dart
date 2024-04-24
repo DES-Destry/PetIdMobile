@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:pet_id_mobile/colors/app_palette.dart';
@@ -59,12 +61,12 @@ class _LangSelectState extends State<LangSelect> {
               children: [
                 LanguageSelectorButton(
                   head: 'SYS',
-                  caption: 'System default:\n${getLocaleFriendlyName(Localizations.localeOf(context).toString())}',
+                  caption: 'System default:\n${getLocaleFriendlyName(Platform.localeName)}',
                   onPressed: () => {
                     setState(() {
                       language = 'sys';
                     }),
-                    context.setLocale(Localizations.localeOf(context))
+                    context.setLocale(Locale(Platform.localeName.substring(0, 2)))
                   },
                   isSelected: language == 'sys',
                 ),
