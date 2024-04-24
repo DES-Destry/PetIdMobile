@@ -6,7 +6,7 @@ class LightPalette extends ColorPalette {
   final Color primary = const Color(0xFF1DE24A);
   
   @override
-  final Color background = const Color(0xFFFFFFFF);
+  final Color background = const Color(0xFFFFFDFD);
 
   @override
   final Color accent = const Color(0xFF828282);

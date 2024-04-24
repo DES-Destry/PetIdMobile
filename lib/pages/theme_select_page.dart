@@ -2,7 +2,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:pet_id_mobile/colors/app_palette.dart';
-import 'package:pet_id_mobile/components/language_selector_button.dart';
 import 'package:pet_id_mobile/components/theme_selector_button.dart';
 
 class ThemeSelectPage extends StatefulWidget {
@@ -21,6 +20,7 @@ class _ThemeSelectPageState extends State<ThemeSelectPage> {
     var systemThemeCaption = '${'buttons.themeDefault'.tr()}\n${systemTheme.tr()}';
 
     return Scaffold(
+      backgroundColor: AppPalette.currentPalette.background,
       body: SizedBox(
         width: double.infinity,
         child: Column(
