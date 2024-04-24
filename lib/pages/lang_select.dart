@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pet_id_mobile/colors/app_palette.dart';
 import 'package:pet_id_mobile/components/language_selector_button.dart';
+import 'package:pet_id_mobile/main.dart';
 
 class LangSelect extends StatefulWidget {
   const LangSelect({super.key});
@@ -62,7 +63,8 @@ class _LangSelectState extends State<LangSelect> {
                   onPressed: () => {
                     setState(() {
                       language = 'sys';
-                    })
+                    }),
+                    AppLoader.of(context).setLocale(Locale(Localizations.localeOf(context).toString()))
                   },
                   isSelected: language == 'sys',
                 ),
@@ -72,7 +74,8 @@ class _LangSelectState extends State<LangSelect> {
                   onPressed: () => {
                     setState(() {
                       language = 'en';
-                    })
+                    }),
+                    AppLoader.of(context).setLocale(Locale(language))
                   },
                   isSelected: language == 'en',
                 ),
@@ -82,7 +85,8 @@ class _LangSelectState extends State<LangSelect> {
                   onPressed: () => {
                     setState(() {
                       language = 'kk';
-                    })
+                    }),
+                    AppLoader.of(context).setLocale(Locale(language))
                   },
                   isSelected: language == 'kk',
                 ),
@@ -92,7 +96,8 @@ class _LangSelectState extends State<LangSelect> {
                   onPressed: () => {
                     setState(() {
                       language = 'ru';
-                    })
+                    }),
+                    AppLoader.of(context).setLocale(Locale(language))
                   },
                   isSelected: language == 'ru',
                 ),
