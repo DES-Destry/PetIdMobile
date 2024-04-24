@@ -4,6 +4,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:pet_id_mobile/colors/app_palette.dart';
+import 'package:pet_id_mobile/pages/guide/welcome_page.dart';
 import 'package:pet_id_mobile/pages/lang_select_page.dart';
 import 'package:pet_id_mobile/pages/theme_select_page.dart';
 import 'package:pet_id_mobile/storage/storage.dart';
@@ -12,11 +13,13 @@ import 'package:pet_id_mobile/storage/storage_item.dart';
 Future loadPrefs() async {
   await Storage.init();
 
-  var systemBrightness = SchedulerBinding.instance.platformDispatcher.platformBrightness;
-  Brightness theme = Storage.prefs.get(StorageItem.theme) as Brightness? ?? systemBrightness;
+  var systemTheme = SchedulerBinding.instance.platformDispatcher.platformBrightness.name;
+  var prefsTheme = Storage.prefs.getString(StorageItem.theme);
 
-  if (theme == Brightness.light) AppPalette.light();
-  if (theme == Brightness.dark) AppPalette.dark();
+  String theme = prefsTheme == null || prefsTheme == 'system' ? systemTheme : prefsTheme;
+
+  if (theme == 'light') AppPalette.light();
+  if (theme == 'dark') AppPalette.dark();
 }
 
 Widget easyLocalization(Widget startupWidget) {
@@ -49,7 +52,7 @@ void main() async {
     return;
   }
 
-  Brightness? theme = Storage.prefs.get(StorageItem.theme) as Brightness?;
+  var theme = Storage.prefs.getString(StorageItem.theme);
 
   // Open theme page if user isn't set it
   if (theme == null) {
@@ -57,7 +60,13 @@ void main() async {
     return;
   }
 
+  var isGuideComplete = Storage.prefs.getBool(StorageItem.guideIsDone);
+
   // Open onboarding if it isn't complete yet
+  if (isGuideComplete == null || !isGuideComplete) {
+    runApp(easyLocalization(AppLoader(initialPage: WelcomePage(), localeOnStart: startLocale)));
+    return;
+  }
 
   // Check internet connectivity, service availability and maintain
   // Open login page accessToken is expired or not exists at all

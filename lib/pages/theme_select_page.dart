@@ -5,6 +5,9 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter/widgets.dart';
 import 'package:pet_id_mobile/colors/app_palette.dart';
 import 'package:pet_id_mobile/components/theme_selector_button.dart';
+import 'package:pet_id_mobile/pages/guide/welcome_page.dart';
+import 'package:pet_id_mobile/storage/storage.dart';
+import 'package:pet_id_mobile/storage/storage_item.dart';
 
 class ThemeSelectPage extends StatefulWidget {
   const ThemeSelectPage({super.key});
@@ -83,19 +86,19 @@ class _ThemeSelectPageState extends State<ThemeSelectPage> {
               ],
             )),
             ThemeSelectorButton(
-                  head: 'buttons.system'.tr(),
-                  theme: systemTheme,
-                  caption: systemThemeCaption,
-                  onPressed: () => {
-                    setState(() {
-                      theme = 'system';
+              head: 'buttons.system'.tr(),
+              theme: systemTheme,
+              caption: systemThemeCaption,
+              onPressed: () => {
+                setState(() {
+                  theme = 'system';
 
-                      if (systemTheme == 'light') AppPalette.light();
-                      if (systemTheme == 'dark') AppPalette.dark();
-                    }),
-                  },
-                  isSelected: theme == 'system',
-                ),
+                  if (systemTheme == 'light') AppPalette.light();
+                  if (systemTheme == 'dark') AppPalette.dark();
+                }),
+              },
+              isSelected: theme == 'system',
+            ),
             const SizedBox(height: 32),
             Padding(
               padding: const EdgeInsetsDirectional.symmetric(horizontal: 26),
@@ -103,7 +106,10 @@ class _ThemeSelectPageState extends State<ThemeSelectPage> {
                 width: double.infinity,
                 height: 46,
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Storage.prefs.setString(StorageItem.theme, theme);
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => WelcomePage()));
+                  },
                   style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all<Color>(AppPalette.currentPalette.primary),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
