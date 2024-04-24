@@ -15,6 +15,7 @@
   "buttons": {
     "next": "Далее",
     "languageDefault": "Язык устройства:",
+    "themeDefault": "Тема устройства:",
     "light": "СВЕТЛАЯ",
     "dark": "ТЁМНАЯ",
     "system": "УСТРОЙСТВО",

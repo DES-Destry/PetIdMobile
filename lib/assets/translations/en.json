@@ -15,6 +15,7 @@
   "buttons": {
     "next": "Next",
     "languageDefault": "System default:",
+    "themeDefault": "System default:",
     "light": "LIGHT",
     "dark": "DARK",
     "system": "SYSTEM",

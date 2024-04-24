@@ -10,14 +10,4 @@ class DarkPalette extends ColorPalette {
 
   @override
   final Color accent = const Color(0xFFFFFFFF);
-
-  @override
-  final LinearGradient transparentGlass = LinearGradient(
-    begin: Alignment.topLeft,
-    end: Alignment.bottomRight,
-    colors: [
-      Colors.white.withOpacity(0.5),
-      Colors.white.withOpacity(0.25),
-    ],
-  );
 }

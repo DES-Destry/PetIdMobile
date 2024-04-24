@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:pet_id_mobile/colors/app_palette.dart';
 import 'package:pet_id_mobile/components/language_selector_button.dart';
+import 'package:pet_id_mobile/components/theme_selector_button.dart';
 
 class ThemeSelectPage extends StatefulWidget {
   const ThemeSelectPage({super.key});
@@ -12,12 +13,12 @@ class ThemeSelectPage extends StatefulWidget {
 }
 
 class _ThemeSelectPageState extends State<ThemeSelectPage> {
-  String theme = 'sys';
+  String theme = 'system';
 
   @override
   Widget build(BuildContext context) {
     var systemTheme = SchedulerBinding.instance.platformDispatcher.platformBrightness.name;
-    var systemThemeCaption = '${'systemThemeCaption'.tr()}\n${systemTheme.tr()}';
+    var systemThemeCaption = '${'buttons.themeDefault'.tr()}\n${systemTheme.tr()}';
 
     return Scaffold(
       body: SizedBox(
@@ -54,8 +55,9 @@ class _ThemeSelectPageState extends State<ThemeSelectPage> {
               padding: const EdgeInsets.all(26.0),
               shrinkWrap: true,
               children: [
-                LanguageSelectorButton(
+                ThemeSelectorButton(
                   head: 'buttons.light'.tr(),
+                  theme: 'light',
                   onPressed: () => {
                     setState(() {
                       theme = 'light';
@@ -64,8 +66,9 @@ class _ThemeSelectPageState extends State<ThemeSelectPage> {
                   },
                   isSelected: theme == 'light',
                 ),
-                LanguageSelectorButton(
+                ThemeSelectorButton(
                   head: 'buttons.dark'.tr(),
+                  theme: 'dark',
                   onPressed: () => {
                     setState(() {
                       theme = 'dark';
@@ -74,8 +77,9 @@ class _ThemeSelectPageState extends State<ThemeSelectPage> {
                   },
                   isSelected: theme == 'dark',
                 ),
-                LanguageSelectorButton(
+                ThemeSelectorButton(
                   head: 'buttons.system'.tr(),
+                  theme: systemTheme,
                   caption: systemThemeCaption,
                   onPressed: () => {
                     setState(() {
@@ -101,7 +105,7 @@ class _ThemeSelectPageState extends State<ThemeSelectPage> {
                       backgroundColor: MaterialStateProperty.all<Color>(AppPalette.currentPalette.primary),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)))),
-                  child: Text('buttons.next'.tr(),
+                  child: Text('buttons.letsgo'.tr(),
                       style: const TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold)),
                 ),
               ),
