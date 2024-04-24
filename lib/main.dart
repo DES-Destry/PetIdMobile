@@ -75,7 +75,7 @@ class _AppLoaderState extends State<AppLoader> {
     return MaterialApp(
       title: 'PetID',
       debugShowCheckedModeBanner: false,
-      locale: widget.localeOnStart ?? context.locale,
+      locale: context.locale,
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       theme: ThemeData(
