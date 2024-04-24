@@ -1,6 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:pet_id_mobile/colors/app_palette.dart';
 import 'package:pet_id_mobile/pages/lang_select.dart';
 import 'package:pet_id_mobile/storage/storage.dart';
@@ -16,8 +16,18 @@ Future loadPrefs() async {
   if (theme == Brightness.dark) AppPalette.dark();
 }
 
+Widget easyLocalization(Widget startupWidget, Locale locale) {
+  return EasyLocalization(
+    supportedLocales: const [Locale('en'), Locale('ru'), Locale('kz')],
+    path: 'lib/assets/translations',
+    fallbackLocale: locale,
+    child: startupWidget,
+  );
+}
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
 
   await loadPrefs();
 
@@ -25,7 +35,16 @@ void main() async {
   var currentLocale = Locale(localeString ?? 'en');
 
   // Open Language page if user isn't set it
-  if (localeString == null) runApp(AppLoader(initialPage: const LangSelect(), initialLocale: currentLocale));
+  if (localeString == null) {
+    runApp(easyLocalization(
+        const AppLoader(
+          initialPage: LangSelect(),
+          // initialLocale: currentLocale
+        ),
+        currentLocale));
+
+    return;
+  }
 
   // Open theme page if user isn't set it
 
@@ -35,45 +54,41 @@ void main() async {
   // Open login page accessToken is expired or not exists at all
   // Open main page if authentication was successful
 
-  runApp(AppLoader(initialPage: const LangSelect(), initialLocale: currentLocale));
+  runApp(const AppLoader(
+    initialPage: LangSelect(),
+    // initialLocale: currentLocale
+  ));
 }
 
 class AppLoader extends StatefulWidget {
-  final Locale initialLocale;
+  // final Locale initialLocale;
   final Widget initialPage;
 
-  const AppLoader({super.key, required this.initialPage, required this.initialLocale});
+  const AppLoader({super.key, required this.initialPage});
 
   @override
   State<AppLoader> createState() => _AppLoaderState();
-
-  // ignore: library_private_types_in_public_api
-  static _AppLoaderState of(BuildContext context) => context.findAncestorStateOfType<_AppLoaderState>()!;
 }
 
 class _AppLoaderState extends State<AppLoader> {
-  late Locale _locale;
+  // late Locale _locale;
 
-  void setLocale(Locale value) {
-    setState(() {
-      _locale = value;
-    });
-  }
+  // void setLocale(Locale value) {
+  //   setState(() {
+  //     _locale = value;
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
-    _locale = widget.initialLocale;
+    // _locale = widget.initialLocale;
 
     return MaterialApp(
       title: 'PetID',
       debugShowCheckedModeBanner: false,
-      locale: _locale,
-      localizationsDelegates: const [
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: const [Locale('en'), Locale('ru'), Locale('kk')],
+      locale: context.locale,
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
       theme: ThemeData(
         fontFamily: 'Nunito',
         colorScheme: ColorScheme.fromSeed(seedColor: AppPalette.currentPalette.primary),

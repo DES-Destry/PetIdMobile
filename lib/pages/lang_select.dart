@@ -1,7 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:pet_id_mobile/colors/app_palette.dart';
 import 'package:pet_id_mobile/components/language_selector_button.dart';
-import 'package:pet_id_mobile/main.dart';
 
 class LangSelect extends StatefulWidget {
   const LangSelect({super.key});
@@ -30,7 +30,7 @@ class _LangSelectState extends State<LangSelect> {
           children: [
             const SizedBox(height: 128),
             Center(
-              child: Text('Select Language',
+              child: Text('selectLanguage'.tr(),
                   style: TextStyle(
                     fontSize: 42,
                     letterSpacing: -0.01,
@@ -39,8 +39,7 @@ class _LangSelectState extends State<LangSelect> {
                   )),
             ),
             Center(
-              child: Text(
-                  'Configure your PetID, by selecting app language.\n*If you understand this, you are on the right way*',
+              child: Text('selectLanguageCaption'.tr(),
                   style: TextStyle(
                       fontSize: 12,
                       letterSpacing: -0.02,
@@ -64,7 +63,7 @@ class _LangSelectState extends State<LangSelect> {
                     setState(() {
                       language = 'sys';
                     }),
-                    AppLoader.of(context).setLocale(Locale(Localizations.localeOf(context).toString()))
+                    context.setLocale(Localizations.localeOf(context))
                   },
                   isSelected: language == 'sys',
                 ),
@@ -75,7 +74,7 @@ class _LangSelectState extends State<LangSelect> {
                     setState(() {
                       language = 'en';
                     }),
-                    AppLoader.of(context).setLocale(Locale(language))
+                    context.setLocale(const Locale('en')),
                   },
                   isSelected: language == 'en',
                 ),
@@ -86,7 +85,7 @@ class _LangSelectState extends State<LangSelect> {
                     setState(() {
                       language = 'kk';
                     }),
-                    AppLoader.of(context).setLocale(Locale(language))
+                    context.setLocale(const Locale('kk'))
                   },
                   isSelected: language == 'kk',
                 ),
@@ -97,7 +96,7 @@ class _LangSelectState extends State<LangSelect> {
                     setState(() {
                       language = 'ru';
                     }),
-                    AppLoader.of(context).setLocale(Locale(language))
+                    context.setLocale(const Locale('ru'))
                   },
                   isSelected: language == 'ru',
                 ),
