@@ -1,6 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/widgets.dart';
 import 'package:pet_id_mobile/colors/app_palette.dart';
 import 'package:pet_id_mobile/components/theme_selector_button.dart';
 
@@ -52,6 +54,7 @@ class _ThemeSelectPageState extends State<ThemeSelectPage> {
               childAspectRatio: 160 / 180, // change this value for different results
               crossAxisSpacing: 18,
               mainAxisSpacing: 12,
+              dragStartBehavior: DragStartBehavior.down,
               padding: const EdgeInsets.all(26.0),
               shrinkWrap: true,
               children: [
@@ -77,7 +80,9 @@ class _ThemeSelectPageState extends State<ThemeSelectPage> {
                   },
                   isSelected: theme == 'dark',
                 ),
-                ThemeSelectorButton(
+              ],
+            )),
+            ThemeSelectorButton(
                   head: 'buttons.system'.tr(),
                   theme: systemTheme,
                   caption: systemThemeCaption,
@@ -91,8 +96,6 @@ class _ThemeSelectPageState extends State<ThemeSelectPage> {
                   },
                   isSelected: theme == 'system',
                 ),
-              ],
-            )),
             const SizedBox(height: 32),
             Padding(
               padding: const EdgeInsetsDirectional.symmetric(horizontal: 26),

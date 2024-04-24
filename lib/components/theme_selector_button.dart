@@ -34,6 +34,8 @@ class _ThemeSelectorButtonState extends State<ThemeSelectorButton> {
     return GestureDetector(
         onTap: widget.onPressed,
         child: Container(
+          width: 160,
+          height: 180,
           decoration: BoxDecoration(
             gradient: widget.isSelected ? selectedBg : AppPalette.currentPalette.transparentGlass,
             border: Border.all(
