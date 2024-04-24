@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -32,7 +34,13 @@ void main() async {
   await loadPrefs();
 
   String? localeString = Storage.prefs.getString(StorageItem.language);
-  var currentLocale = Locale(localeString ?? 'en');
+  Locale currentLocale;
+
+  if (localeString == 'sys') {
+    currentLocale = Locale(Platform.localeName.substring(0, 2));
+  } else {
+    currentLocale = Locale(localeString ?? 'en');
+  }
 
   // Open Language page if user isn't set it
   if (localeString == null) {
