@@ -1,9 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:pet_id_mobile/colors/app_palette.dart';
-import 'package:pet_id_mobile/pages/guide/get_started_page.dart';
 
-class WelcomePage extends StatelessWidget {
+class GetStartedPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +15,7 @@ class WelcomePage extends StatelessWidget {
               children: [
                 const SizedBox(height: 128),
                 Center(
-                  child: Text('welcome'.tr(),
+                  child: Text('getStarted'.tr(),
                       textAlign: TextAlign.center,
                       style: const TextStyle(
                         fontSize: 42,
@@ -26,12 +25,12 @@ class WelcomePage extends StatelessWidget {
                       )),
                 ),
                 const SizedBox(height: 12),
-                Image.asset('lib/assets/images/main-card.png', height: 220, width: 220, fit: BoxFit.contain),
+                Image.asset('lib/assets/images/get-started.png', height: 220, width: 220, fit: BoxFit.contain),
                 const SizedBox(height: 32),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 32.0),
                   child: Center(
-                    child: Text('welcomeCaption'.tr(),
+                    child: Text('getStartedCaption'.tr(),
                         textAlign: TextAlign.center,
                         style: const TextStyle(
                           fontSize: 20,
@@ -49,10 +48,12 @@ class WelcomePage extends StatelessWidget {
                 alignment: Alignment.bottomCenter,
                 child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
                   IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
                       iconSize: 24.0,
-                      icon: Icon(Icons.arrow_back_ios, color: AppPalette.currentPalette.primary)),
-                  Text('1 ${'of'.tr()} 4',
+                      icon: const Icon(Icons.arrow_back_ios, color: Colors.white)),
+                  Text('2 ${'of'.tr()} 4',
                       textAlign: TextAlign.center,
                       style: const TextStyle(
                         fontSize: 18,
@@ -60,11 +61,7 @@ class WelcomePage extends StatelessWidget {
                         color: Colors.white,
                       )),
                   IconButton(
-                      onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => GetStartedPage()));
-                      },
-                      iconSize: 24.0,
-                      icon: const Icon(Icons.arrow_forward_ios, color: Colors.white)),
+                      onPressed: () {}, iconSize: 24.0, icon: const Icon(Icons.arrow_forward_ios, color: Colors.white)),
                 ]),
               ),
             ),
