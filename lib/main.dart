@@ -18,7 +18,7 @@ Future loadPrefs() async {
 
 Widget easyLocalization(Widget startupWidget, Locale locale) {
   return EasyLocalization(
-    supportedLocales: const [Locale('en'), Locale('ru'), Locale('kz')],
+    supportedLocales: const [Locale('en'), Locale('ru'), Locale('kk')],
     path: 'lib/assets/translations',
     fallbackLocale: locale,
     child: startupWidget,
@@ -39,7 +39,6 @@ void main() async {
     runApp(easyLocalization(
         const AppLoader(
           initialPage: LangSelect(),
-          // initialLocale: currentLocale
         ),
         currentLocale));
 
@@ -56,12 +55,10 @@ void main() async {
 
   runApp(const AppLoader(
     initialPage: LangSelect(),
-    // initialLocale: currentLocale
   ));
 }
 
 class AppLoader extends StatefulWidget {
-  // final Locale initialLocale;
   final Widget initialPage;
 
   const AppLoader({super.key, required this.initialPage});
@@ -71,18 +68,8 @@ class AppLoader extends StatefulWidget {
 }
 
 class _AppLoaderState extends State<AppLoader> {
-  // late Locale _locale;
-
-  // void setLocale(Locale value) {
-  //   setState(() {
-  //     _locale = value;
-  //   });
-  // }
-
   @override
   Widget build(BuildContext context) {
-    // _locale = widget.initialLocale;
-
     return MaterialApp(
       title: 'PetID',
       debugShowCheckedModeBanner: false,
