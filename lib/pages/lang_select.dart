@@ -58,6 +58,7 @@ class _LangSelectState extends State<LangSelect> {
               crossAxisSpacing: 18,
               mainAxisSpacing: 12,
               padding: const EdgeInsets.all(26.0),
+              shrinkWrap: true,
               children: [
                 LanguageSelectorButton(
                   head: 'SYS',
@@ -105,14 +106,21 @@ class _LangSelectState extends State<LangSelect> {
                 ),
               ],
             )),
+            const SizedBox(height: 32),
             Padding(
-              padding: const EdgeInsetsDirectional.symmetric(horizontal: 32),
-              child: TextButton(
-                onPressed: () {},
-                style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(AppPalette.currentPalette.primary),
-                    textStyle: MaterialStateProperty.all(const TextStyle(color: Colors.white))),
-                child: Text('buttons.next'.tr()),
+              padding: const EdgeInsetsDirectional.symmetric(horizontal: 26),
+              child: SizedBox(
+                width: double.infinity,
+                height: 46,
+                child: TextButton(
+                  onPressed: () {},
+                  style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all<Color>(AppPalette.currentPalette.primary),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)))),
+                  child: Text('buttons.next'.tr(),
+                      style: const TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold)),
+                ),
               ),
             )
           ],
