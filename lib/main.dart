@@ -64,7 +64,7 @@ void main() async {
 
   // Open onboarding if it isn't complete yet
   if (isGuideComplete == null || !isGuideComplete) {
-    runApp(easyLocalization(AppLoader(initialPage: WelcomePage(), localeOnStart: startLocale)));
+    runApp(easyLocalization(AppLoader(initialPage: const WelcomePage(), localeOnStart: startLocale)));
     return;
   }
 

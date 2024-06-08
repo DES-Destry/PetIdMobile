@@ -35,5 +35,9 @@
     "system": "SYSTEM",
     "letsgo": "Let's go!",
     "great": "Great!"
-  }
+  },
+
+  "internetCheck": "Checking internet connection...",
+  "serverCheck": "Checking PetID servers availability...",
+  "maintenanceCheck": "Checking PetID servers for maintenance break..."
 }
