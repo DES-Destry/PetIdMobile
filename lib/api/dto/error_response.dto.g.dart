@@ -10,7 +10,7 @@ ErrorResponseDto _$ErrorResponseDtoFromJson(Map<String, dynamic> json) =>
     ErrorResponseDto(
       type: json['type'] as String,
       title: json['title'] as String,
-      status: json['status'] as int,
+      status: (json['status'] as num).toInt(),
       detail: json['detail'] as String,
       instance: json['instance'] as String,
       code: json['code'] as String,
