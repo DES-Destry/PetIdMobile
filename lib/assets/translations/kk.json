@@ -36,5 +36,7 @@
   "email": "Эл. Пошта",
   "password": "Пароль",
   "repeatPassword": "Повторите пароль",
-  "createAccount": "Создать аккаунт"
+  "createAccount": "Создать аккаунт",
+  "welcomeBack": "Добро пожаловать!",
+  "loginButton": "Войти"
 }

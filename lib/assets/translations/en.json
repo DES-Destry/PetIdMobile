@@ -36,5 +36,7 @@
   "email": "Email",
   "password": "Password",
   "repeatPassword": "Repeat password",
-  "createAccount": "Create account"
+  "createAccount": "Create account",
+  "welcomeBack": "Welcome back!",
+  "loginButton": "Login"
 }

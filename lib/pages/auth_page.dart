@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:pet_id_mobile/components/basic_button.dart';
 import 'package:pet_id_mobile/components/pet_id_title.dart';
+import 'package:pet_id_mobile/pages/login_page.dart';
 import 'package:pet_id_mobile/pages/register_page.dart';
 import 'package:pet_id_mobile/shared/paths.dart';
 
@@ -40,7 +41,12 @@ class AuthPage extends StatelessWidget {
                     BasicButton(
                         content: 'login'.tr(),
                         isSecondary: true,
-                        onPressed: () => {}),
+                        onPressed: () => {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const LoginPage()))
+                            }),
                   ],
                 ),
               ),
