@@ -3,6 +3,9 @@ import 'package:pet_id_mobile/colors/color_palette.dart';
 
 class LightPalette extends ColorPalette {
   @override
+  final String name = 'light';
+  
+  @override
   final Color primary = const Color(0xFF1DE24A);
 
   @override

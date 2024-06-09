@@ -36,6 +36,10 @@ class _BasicInputState extends State<BasicInput> {
               color: AppPalette.currentPalette.accent,
               fontSize: 20,
               letterSpacing: 0.03),
+          keyboardType: widget.type,
+          keyboardAppearance: AppPalette.currentPalette.name == 'light'
+              ? Brightness.light
+              : Brightness.dark,
           decoration: InputDecoration(
             labelText: widget.hint,
             labelStyle: TextStyle(

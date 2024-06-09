@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 abstract class ColorPalette {
+  abstract final String name;
+
   abstract final Color primary;
   abstract final Color background;
   abstract final Color inputBackground;
