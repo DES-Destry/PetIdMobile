@@ -7,6 +7,7 @@ abstract class ColorPalette {
   abstract final Color background;
   abstract final Color inputBackground;
   abstract final Color accent;
+  abstract final Color grayText;
 
   final Color niceHint = const Color(0xFF696969);
 

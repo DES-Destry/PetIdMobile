@@ -15,4 +15,7 @@ class DarkPalette extends ColorPalette {
 
   @override
   final Color accent = const Color(0xFFFFFFFF);
+
+  @override
+  final Color grayText = const Color(0xFFADADAD);
 }

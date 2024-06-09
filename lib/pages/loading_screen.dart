@@ -6,6 +6,7 @@ import 'package:pet_id_mobile/api/owner_controller.dart';
 import 'package:pet_id_mobile/api/server_controller.dart';
 import 'package:pet_id_mobile/colors/app_palette.dart';
 import 'package:pet_id_mobile/pages/auth_page.dart';
+import 'package:pet_id_mobile/pages/ooopsie/depressed_cat_page.dart';
 import 'package:pet_id_mobile/storage/storage.dart';
 import 'package:pet_id_mobile/storage/storage_item.dart';
 
@@ -61,10 +62,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
       final status = await _watcherController.getMaintenanceStatus();
       serverIsBlocked = status.appShouldBeBlocked;
     } catch (e) {
-      // TODO Open depressed cat page
-      setState(() {
-        _status = 'DEPRESSED_CAT_SHOULD_APPEAR';
-      });
+      _openDepressedCat();
       return;
     }
 
@@ -84,18 +82,12 @@ class _LoadingScreenState extends State<LoadingScreen> {
     try {
       serverIsHealthy = await _serverController.health();
     } catch (e) {
-      // TODO Open depressed cat page
-      setState(() {
-        _status = 'DEPRESSED_CAT_SHOULD_APPEAR';
-      });
+      _openDepressedCat();
       return;
     }
 
     if (!serverIsHealthy) {
-      // TODO Open depressed cat page
-      setState(() {
-        _status = 'DEPRESSED_CAT_SHOULD_APPEAR';
-      });
+      _openDepressedCat();
       return;
     }
 
@@ -122,10 +114,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
         return;
       }
 
-      // TODO Open depressed cat page
-      setState(() {
-        _status = 'DEPRESSED_CAT_SHOULD_APPEAR';
-      });
+      _openDepressedCat();
       return;
     }
 
@@ -144,6 +133,11 @@ class _LoadingScreenState extends State<LoadingScreen> {
   void _openAuth() {
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => const AuthPage()));
+  }
+
+  void _openDepressedCat() {
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => const DepressedCatPage()));
   }
 
   @override

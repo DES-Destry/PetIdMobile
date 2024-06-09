@@ -44,7 +44,7 @@ class _BasicInputState extends State<BasicInput> {
             labelText: widget.hint,
             labelStyle: TextStyle(
                 color: widget.content == ''
-                    ? AppPalette.currentPalette.niceHint
+                    ? AppPalette.currentPalette.grayText
                     : AppPalette.currentPalette.accent,
                 fontSize: 20,
                 letterSpacing: 0.03),
