@@ -102,6 +102,9 @@ class _LoadingScreenState extends State<LoadingScreen> {
     final accessToken = Storage.prefs.getString(StorageItem.accessToken);
     if (accessToken == null) {
       // TODO open registration
+      setState(() {
+        _status = 'REGISTRATION_SHOULD_APPEAR';
+      });
       return;
     }
 
@@ -113,7 +116,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
       if (e is ApiException && e.errorResponse.status == 401) {
         // TODO open registration
         setState(() {
-          _status = 'REGISTRATION_CAT_SHOULD_APPEAR';
+          _status = 'REGISTRATION_SHOULD_APPEAR';
         });
         return;
       }
@@ -127,7 +130,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
 
     // TODO Open home page
     setState(() {
-      _status = 'PROFILE_CAT_SHOULD_APPEAR';
+      _status = 'HOME_SHOULD_APPEAR';
     });
   }
 

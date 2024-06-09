@@ -3,9 +3,11 @@ import 'dart:io';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:pet_id_mobile/colors/app_palette.dart';
 import 'package:pet_id_mobile/pages/guide/welcome_page.dart';
 import 'package:pet_id_mobile/pages/lang_select_page.dart';
+import 'package:pet_id_mobile/pages/status_check.dart';
 import 'package:pet_id_mobile/pages/theme_select_page.dart';
 import 'package:pet_id_mobile/storage/storage.dart';
 import 'package:pet_id_mobile/storage/storage_item.dart';
@@ -13,10 +15,12 @@ import 'package:pet_id_mobile/storage/storage_item.dart';
 Future loadPrefs() async {
   await Storage.init();
 
-  var systemTheme = SchedulerBinding.instance.platformDispatcher.platformBrightness.name;
+  var systemTheme =
+      SchedulerBinding.instance.platformDispatcher.platformBrightness.name;
   var prefsTheme = Storage.prefs.getString(StorageItem.theme);
 
-  String theme = prefsTheme == null || prefsTheme == 'system' ? systemTheme : prefsTheme;
+  String theme =
+      prefsTheme == null || prefsTheme == 'system' ? systemTheme : prefsTheme;
 
   if (theme == 'light') AppPalette.light();
   if (theme == 'dark') AppPalette.dark();
@@ -35,6 +39,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
 
+  await dotenv.load(fileName: '.env');
   await loadPrefs();
 
   String? localeString = Storage.prefs.getString(StorageItem.language);
@@ -48,7 +53,8 @@ void main() async {
 
   // Open Language page if user isn't set it
   if (localeString == null) {
-    runApp(easyLocalization(AppLoader(initialPage: const LangSelectPage(), localeOnStart: startLocale)));
+    runApp(easyLocalization(AppLoader(
+        initialPage: const LangSelectPage(), localeOnStart: startLocale)));
     return;
   }
 
@@ -56,7 +62,8 @@ void main() async {
 
   // Open theme page if user isn't set it
   if (theme == null) {
-    runApp(easyLocalization(AppLoader(initialPage: const ThemeSelectPage(), localeOnStart: startLocale)));
+    runApp(easyLocalization(AppLoader(
+        initialPage: const ThemeSelectPage(), localeOnStart: startLocale)));
     return;
   }
 
@@ -64,15 +71,12 @@ void main() async {
 
   // Open onboarding if it isn't complete yet
   if (isGuideComplete == null || !isGuideComplete) {
-    runApp(easyLocalization(AppLoader(initialPage: const WelcomePage(), localeOnStart: startLocale)));
+    runApp(easyLocalization(AppLoader(
+        initialPage: const WelcomePage(), localeOnStart: startLocale)));
     return;
   }
 
-  // Check internet connectivity, service availability and maintain
-  // Open login page accessToken is expired or not exists at all
-  // Open main page if authentication was successful
-
-  runApp(const AppLoader(initialPage: ThemeSelectPage()));
+  runApp(easyLocalization(const AppLoader(initialPage: LoadingScreen())));
 }
 
 class AppLoader extends StatefulWidget {
@@ -96,7 +100,8 @@ class _AppLoaderState extends State<AppLoader> {
       supportedLocales: context.supportedLocales,
       theme: ThemeData(
         fontFamily: 'Nunito',
-        colorScheme: ColorScheme.fromSeed(seedColor: AppPalette.currentPalette.primary),
+        colorScheme:
+            ColorScheme.fromSeed(seedColor: AppPalette.currentPalette.primary),
         scaffoldBackgroundColor: AppPalette.currentPalette.background,
         useMaterial3: true,
       ),
