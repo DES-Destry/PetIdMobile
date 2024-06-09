@@ -27,13 +27,15 @@ class _BasicInputState extends State<BasicInput> {
         width: double.infinity,
         height: 46,
         child: TextField(
+          cursorHeight: 24.0,
+          enableSuggestions: true,
           textCapitalization: widget.type == TextInputType.emailAddress
               ? TextCapitalization.none
               : TextCapitalization.sentences,
           obscureText: widget.type == TextInputType.visiblePassword,
           autocorrect: widget.type != TextInputType.visiblePassword,
           style: TextStyle(
-              color: AppPalette.currentPalette.accent,
+              color: AppPalette.currentPalette.text,
               fontSize: 20,
               letterSpacing: 0.03),
           keyboardType: widget.type,

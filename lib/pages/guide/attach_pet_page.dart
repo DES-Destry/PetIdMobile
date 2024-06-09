@@ -70,19 +70,19 @@ class AttachPetPage extends StatelessWidget {
                             fontWeight: FontWeight.normal,
                             color: Colors.white,
                           )),
-                      IconButton(
-                          onPressed: () {
-                            Storage.prefs
-                                .setBool(StorageItem.guideIsDone, true);
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        const LoadingScreen()));
-                          },
-                          iconSize: 24.0,
-                          icon: Icon(Icons.arrow_forward_ios,
-                              color: AppPalette.currentPalette.primary)),
+                      TextButton(
+                        onPressed: () {
+                          Storage.prefs.setBool(StorageItem.guideIsDone, true);
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const LoadingScreen()));
+                        },
+                        child: Text('buttons.great'.tr(),
+                            style: TextStyle(
+                                color: AppPalette.currentPalette.white,
+                                fontSize: 20)),
+                      ),
                     ]),
               ),
             ),
