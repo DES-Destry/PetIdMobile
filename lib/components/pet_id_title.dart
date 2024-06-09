@@ -9,7 +9,7 @@ class PetIdTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 26.0),
+      padding: const EdgeInsets.symmetric(horizontal: 0.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [

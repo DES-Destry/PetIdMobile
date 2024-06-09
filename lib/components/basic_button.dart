@@ -13,7 +13,7 @@ class BasicButton extends StatelessWidget {
       required this.content,
       required this.onPressed,
       this.isSecondary = false,
-      this.padding = 26});
+      this.padding = 0.0});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class BasicButton extends StatelessWidget {
         width: double.infinity,
         height: 46,
         child: TextButton(
-          onPressed: () {},
+          onPressed: onPressed,
           style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all<Color>(isSecondary
                   ? AppPalette.currentPalette.white

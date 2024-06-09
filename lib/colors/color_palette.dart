@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 abstract class ColorPalette {
   abstract final Color primary;
   abstract final Color background;
+  abstract final Color inputBackground;
   abstract final Color accent;
+
+  final Color niceHint = const Color(0xFF696969);
 
   final Color black = const Color(0xFF000000);
   final Color white = const Color(0xFFFFFFFF);

@@ -32,5 +32,9 @@
   "maintenanceCheck": "Checking PetID servers for maintenance break...",
   "authLoading": "Authentication...",
   "register": "Register",
-  "login": "I've an account"
+  "login": "I've an account",
+  "email": "Email",
+  "password": "Password",
+  "repeatPassword": "Repeat password",
+  "createAccount": "Create account"
 }

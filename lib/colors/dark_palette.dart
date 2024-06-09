@@ -7,6 +7,8 @@ class DarkPalette extends ColorPalette {
 
   @override
   final Color background = const Color(0xFF333333);
+  @override
+  final Color inputBackground = const Color(0xFF444444);
 
   @override
   final Color accent = const Color(0xFFFFFFFF);
