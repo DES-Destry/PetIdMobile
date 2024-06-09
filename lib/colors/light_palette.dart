@@ -17,5 +17,7 @@ class LightPalette extends ColorPalette {
   final Color accent = const Color(0xFF828282);
 
   @override
+  final Color text = const Color(0xFF000000);
+  @override
   final Color grayText = const Color(0xFF696969);
 }

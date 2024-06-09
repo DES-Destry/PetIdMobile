@@ -9,6 +9,7 @@ import 'package:pet_id_mobile/pages/auth_page.dart';
 import 'package:pet_id_mobile/pages/login_page.dart';
 import 'package:pet_id_mobile/pages/ooopsie/confused_cat_page.dart';
 import 'package:pet_id_mobile/pages/ooopsie/depressed_cat_page.dart';
+import 'package:pet_id_mobile/pages/ooopsie/maintenance_cat_page.dart';
 import 'package:pet_id_mobile/storage/storage.dart';
 import 'package:pet_id_mobile/storage/storage_item.dart';
 
@@ -47,9 +48,6 @@ class _LoadingScreenState extends State<LoadingScreen> {
       result = [ConnectivityResult.none];
     }
 
-    _openConfusedCat();
-    return;
-
     if (!_isInternetAvailable(result)) {
       _openConfusedCat();
       return;
@@ -69,10 +67,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
     }
 
     if (serverIsBlocked) {
-      // TODO Open maintenance cat page
-      setState(() {
-        _status = 'MAINTENANCE_CAT_SHOULD_APPEAR';
-      });
+      _openMaintenanceCat();
       return;
     }
 
@@ -147,6 +142,11 @@ class _LoadingScreenState extends State<LoadingScreen> {
   void _openConfusedCat() {
     Navigator.push(context,
         MaterialPageRoute(builder: (context) => const ConfusedCatPage()));
+  }
+
+  void _openMaintenanceCat() {
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => const MaintenanceCatPage()));
   }
 
   @override

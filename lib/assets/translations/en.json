@@ -43,6 +43,9 @@
     "serviceUnavailable": "Service Unavailable",
     "serviceUnavailableDescription": "Oh, no! Servers are unavailable now due to some unknown error. Wait and try again later, I don’t know when servers will available again. I only have paws... :(",
     "noInternet": "No Internet",
-    "noInternetDescription": "Hey, you have to be connected to Wi-Fi or Cellular Data to be able to use PetID!"
+    "noInternetDescription": "Hey, you have to be connected to Wi-Fi or Cellular Data to be able to use PetID!",
+    "maintenance": "Maintenance!",
+    "maintenanceDescription": "We closed servers for a few seconds to improve their quality! Try again later, and we will a little better than before.",
+    "estimatedTimeLeft": "Estimated time left: ?? min"
   }
 }
