@@ -6,8 +6,8 @@ import 'package:pet_id_mobile/pages/loading_screen.dart';
 import '../../colors/app_palette.dart';
 import '../../shared/paths.dart';
 
-class DepressedCatPage extends StatelessWidget {
-  const DepressedCatPage({super.key});
+class ConfusedCatPage extends StatelessWidget {
+  const ConfusedCatPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class DepressedCatPage extends StatelessWidget {
         body: Stack(
       children: [
         Positioned.fill(
-          child: Image.asset(Paths.getImage('depressed-cat.png'),
+          child: Image.asset(Paths.getImage('confused-cat.png'),
               fit: BoxFit.cover),
         ),
         Column(
@@ -39,7 +39,7 @@ class DepressedCatPage extends StatelessWidget {
                       children: [
                         const SizedBox(height: 16.0),
                         Text(
-                          'ooopsie.serviceUnavailable'.tr(),
+                          'ooopsie.noInternet'.tr(),
                           textAlign: TextAlign.center,
                           style: TextStyle(
                               fontSize: 32.0,
@@ -51,7 +51,7 @@ class DepressedCatPage extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 32.0),
                           child: Text(
-                            'ooopsie.serviceUnavailableDescription'.tr(),
+                            'ooopsie.noInternetDescription'.tr(),
                             textAlign: TextAlign.start,
                             style: TextStyle(
                                 fontSize: 12.5,

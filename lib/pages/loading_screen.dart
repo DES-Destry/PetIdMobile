@@ -6,6 +6,8 @@ import 'package:pet_id_mobile/api/owner_controller.dart';
 import 'package:pet_id_mobile/api/server_controller.dart';
 import 'package:pet_id_mobile/colors/app_palette.dart';
 import 'package:pet_id_mobile/pages/auth_page.dart';
+import 'package:pet_id_mobile/pages/login_page.dart';
+import 'package:pet_id_mobile/pages/ooopsie/confused_cat_page.dart';
 import 'package:pet_id_mobile/pages/ooopsie/depressed_cat_page.dart';
 import 'package:pet_id_mobile/storage/storage.dart';
 import 'package:pet_id_mobile/storage/storage_item.dart';
@@ -45,11 +47,11 @@ class _LoadingScreenState extends State<LoadingScreen> {
       result = [ConnectivityResult.none];
     }
 
+    _openConfusedCat();
+    return;
+
     if (!_isInternetAvailable(result)) {
-      // TODO Open confused cat page
-      setState(() {
-        _status = 'CONFUSED_CAT_SHOULD_APPEAR';
-      });
+      _openConfusedCat();
       return;
     }
 
@@ -107,10 +109,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
       final ownerData = await _ownerController.auth();
     } catch (e) {
       if (e is ApiException && e.errorResponse.status == 401) {
-        // TODO open registration
-        setState(() {
-          _status = 'WELCOME_BACK_SHOULD_APPEAR';
-        });
+        _openWelcomeBack();
         return;
       }
 
@@ -135,9 +134,19 @@ class _LoadingScreenState extends State<LoadingScreen> {
         context, MaterialPageRoute(builder: (context) => const AuthPage()));
   }
 
+  void _openWelcomeBack() {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => const LoginPage()));
+  }
+
   void _openDepressedCat() {
     Navigator.push(context,
         MaterialPageRoute(builder: (context) => const DepressedCatPage()));
+  }
+
+  void _openConfusedCat() {
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => const ConfusedCatPage()));
   }
 
   @override
