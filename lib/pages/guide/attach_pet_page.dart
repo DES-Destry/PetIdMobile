@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:pet_id_mobile/colors/app_palette.dart';
 import 'package:pet_id_mobile/pages/loading_screen.dart';
 
+import '../../storage/storage.dart';
+import '../../storage/storage_item.dart';
+
 class AttachPetPage extends StatelessWidget {
   const AttachPetPage({super.key});
 
@@ -69,6 +72,8 @@ class AttachPetPage extends StatelessWidget {
                           )),
                       IconButton(
                           onPressed: () {
+                            Storage.prefs
+                                .setBool(StorageItem.guideIsDone, true);
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
