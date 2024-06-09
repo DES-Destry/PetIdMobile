@@ -66,7 +66,7 @@ class DepressedCatPage extends StatelessWidget {
                       padding: const EdgeInsets.only(
                           bottom: 16.0, left: 32.0, right: 32.0),
                       child: BasicButton(
-                          content: 'tryAgain'.tr(),
+                          content: 'buttons.tryAgain'.tr(),
                           onPressed: () {
                             Navigator.push(
                                 context,
