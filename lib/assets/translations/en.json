@@ -1,31 +1,22 @@
 {
   "of": "of",
-
   "selectLanguage": "Select Language",
   "selectLanguageCaption": "Configure your PetID, by selecting app language.\n*If you understand this, you are on the right way*",
-
   "en": "English",
   "kk": "Kazakh",
   "ru": "Russian",
-
   "selectTheme": "Select Theme",
   "selectThemeCaption": "Customize PetID app personally for you.\nUse that theme, that you want!",
-
   "light": "Light",
   "dark": "Dark",
-
   "welcome": "Welcome!",
   "welcomeCaption": "Take care of your pet and never lose it! This application in conjunction with the brand Pet ID Tags will help you not to lose your beloved pet. Any passerby will be able to scan QR and get information from you and send the location of the last scan",
-
   "getStarted": "Get started",
   "getStartedCaption": "You must create new account or login if you already used this app before",
-
   "scanQr": "Scan QR",
   "scanQrCaption": "QR scanning will show data about pet, that attached to this QR",
-
   "attachPet": "Attach a pet",
   "attachPetCaption": "After first Pet ID Tag scan you be able to fill data about your lovely pet",
-
   "buttons": {
     "next": "Next",
     "languageDefault": "System default:",
@@ -36,8 +27,10 @@
     "letsgo": "Let's go!",
     "great": "Great!"
   },
-
   "internetCheck": "Checking internet connection...",
   "serverCheck": "Checking PetID servers availability...",
-  "maintenanceCheck": "Checking PetID servers for maintenance break..."
+  "maintenanceCheck": "Checking PetID servers for maintenance break...",
+  "authLoading": "Authentication...",
+  "register": "Register",
+  "login": "I've an account"
 }

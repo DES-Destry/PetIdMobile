@@ -99,6 +99,10 @@ class _LoadingScreenState extends State<LoadingScreen> {
       return;
     }
 
+    setState(() {
+      _status = 'authLoading'.tr();
+    });
+
     final accessToken = Storage.prefs.getString(StorageItem.accessToken);
     if (accessToken == null) {
       _openAuth();

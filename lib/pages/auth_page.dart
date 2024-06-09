@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:pet_id_mobile/colors/app_palette.dart';
 import 'package:pet_id_mobile/components/basic_button.dart';
@@ -47,10 +48,10 @@ class AuthPage extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 16),
-                    BasicButton(content: 'Register', onPressed: () => {}),
+                    BasicButton(content: 'register'.tr(), onPressed: () => {}),
                     const SizedBox(height: 16),
                     BasicButton(
-                        content: 'I\'ve an account',
+                        content: 'login'.tr(),
                         isSecondary: true,
                         onPressed: () => {}),
                   ],
