@@ -25,7 +25,9 @@
     "dark": "DARK",
     "system": "SYSTEM",
     "letsgo": "Let's go!",
-    "great": "Great!"
+    "great": "Great!",
+    "login": "Login",
+    "tryAgain": "Try again"
   },
   "internetCheck": "Checking internet connection...",
   "serverCheck": "Checking PetID servers availability...",
@@ -38,7 +40,6 @@
   "repeatPassword": "Repeat password",
   "createAccount": "Create account",
   "welcomeBack": "Welcome back!",
-  "loginButton": "Login",
   "ooopsie": {
     "serviceUnavailable": "Service Unavailable",
     "serviceUnavailableDescription": "Oh, no! Servers are unavailable now due to some unknown error. Wait and try again later, I don’t know when servers will available again. I only have paws... :(",

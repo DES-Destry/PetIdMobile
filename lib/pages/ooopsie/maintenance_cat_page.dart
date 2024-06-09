@@ -73,7 +73,7 @@ class MaintenanceCatPage extends StatelessWidget {
                                 fontSize: 14,
                               )),
                           BasicButton(
-                              content: 'Try again',
+                              content: 'tryAgain'.tr(),
                               onPressed: () {
                                 Navigator.push(
                                     context,

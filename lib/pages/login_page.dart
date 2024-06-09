@@ -80,7 +80,7 @@ class _LoginPageState extends State<LoginPage> {
                           type: TextInputType.visiblePassword),
                       const SizedBox(height: 64.0),
                       BasicButton(
-                          content: 'loginButton'.tr(), onPressed: () => {})
+                          content: 'buttons.login'.tr(), onPressed: () => {})
                     ],
                   ),
                 ),
