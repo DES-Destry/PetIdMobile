@@ -7,7 +7,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:pet_id_mobile/colors/app_palette.dart';
 import 'package:pet_id_mobile/pages/guide/welcome_page.dart';
 import 'package:pet_id_mobile/pages/lang_select_page.dart';
-import 'package:pet_id_mobile/pages/status_check.dart';
+import 'package:pet_id_mobile/pages/loading_screen.dart';
 import 'package:pet_id_mobile/pages/theme_select_page.dart';
 import 'package:pet_id_mobile/storage/storage.dart';
 import 'package:pet_id_mobile/storage/storage_item.dart';

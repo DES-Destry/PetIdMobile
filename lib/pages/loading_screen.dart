@@ -67,7 +67,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
       return;
     }
 
-    if (!serverIsBlocked) {
+    if (serverIsBlocked) {
       // TODO Open maintenance cat page
       setState(() {
         _status = 'MAINTENANCE_CAT_SHOULD_APPEAR';
@@ -148,9 +148,12 @@ class _LoadingScreenState extends State<LoadingScreen> {
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const CircularProgressIndicator(),
+          CircularProgressIndicator(color: AppPalette.currentPalette.white),
           const SizedBox(height: 20),
-          Text(_status),
+          Text(_status,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  color: AppPalette.currentPalette.white, fontSize: 18)),
         ],
       )),
     );

@@ -5,6 +5,9 @@ abstract class ColorPalette {
   abstract final Color background;
   abstract final Color accent;
 
+  final Color black = const Color(0xFF000000);
+  final Color white = const Color(0xFFFFFFFF);
+
   final Color sun = const Color(0xFFFFF500);
   final Color night = const Color(0xFF090842);
 

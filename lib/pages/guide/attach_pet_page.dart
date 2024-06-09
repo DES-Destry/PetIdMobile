@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:pet_id_mobile/colors/app_palette.dart';
-import 'package:pet_id_mobile/pages/status_check.dart';
+import 'package:pet_id_mobile/pages/loading_screen.dart';
 
 class AttachPetPage extends StatelessWidget {
   const AttachPetPage({super.key});
