@@ -5,6 +5,7 @@ import 'package:pet_id_mobile/api/exceptions/api.exception.dart';
 import 'package:pet_id_mobile/api/owner_controller.dart';
 import 'package:pet_id_mobile/api/server_controller.dart';
 import 'package:pet_id_mobile/colors/app_palette.dart';
+import 'package:pet_id_mobile/pages/auth_page.dart';
 import 'package:pet_id_mobile/storage/storage.dart';
 import 'package:pet_id_mobile/storage/storage_item.dart';
 
@@ -98,13 +99,9 @@ class _LoadingScreenState extends State<LoadingScreen> {
       return;
     }
 
-    // TODO check user auth
     final accessToken = Storage.prefs.getString(StorageItem.accessToken);
     if (accessToken == null) {
-      // TODO open registration
-      setState(() {
-        _status = 'REGISTRATION_SHOULD_APPEAR';
-      });
+      _openAuth();
       return;
     }
 
@@ -116,7 +113,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
       if (e is ApiException && e.errorResponse.status == 401) {
         // TODO open registration
         setState(() {
-          _status = 'REGISTRATION_SHOULD_APPEAR';
+          _status = 'WELCOME_BACK_SHOULD_APPEAR';
         });
         return;
       }
@@ -138,6 +135,11 @@ class _LoadingScreenState extends State<LoadingScreen> {
     return connections.contains(ConnectivityResult.ethernet) ||
         connections.contains(ConnectivityResult.mobile) ||
         connections.contains(ConnectivityResult.wifi);
+  }
+
+  void _openAuth() {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => const AuthPage()));
   }
 
   @override

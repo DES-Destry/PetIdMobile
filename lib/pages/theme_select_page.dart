@@ -2,7 +2,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/widgets.dart';
 import 'package:pet_id_mobile/colors/app_palette.dart';
 import 'package:pet_id_mobile/components/theme_selector_button.dart';
 import 'package:pet_id_mobile/pages/guide/welcome_page.dart';
@@ -21,8 +20,10 @@ class _ThemeSelectPageState extends State<ThemeSelectPage> {
 
   @override
   Widget build(BuildContext context) {
-    var systemTheme = SchedulerBinding.instance.platformDispatcher.platformBrightness.name;
-    var systemThemeCaption = '${'buttons.themeDefault'.tr()}\n${systemTheme.tr()}';
+    var systemTheme =
+        SchedulerBinding.instance.platformDispatcher.platformBrightness.name;
+    var systemThemeCaption =
+        '${'buttons.themeDefault'.tr()}\n${systemTheme.tr()}';
 
     return Scaffold(
       backgroundColor: AppPalette.currentPalette.background,
@@ -54,7 +55,8 @@ class _ThemeSelectPageState extends State<ThemeSelectPage> {
                 child: GridView.count(
               physics: const NeverScrollableScrollPhysics(),
               crossAxisCount: 2,
-              childAspectRatio: 160 / 180, // change this value for different results
+              childAspectRatio: 160 / 180,
+              // change this value for different results
               crossAxisSpacing: 18,
               mainAxisSpacing: 12,
               dragStartBehavior: DragStartBehavior.down,
@@ -108,14 +110,22 @@ class _ThemeSelectPageState extends State<ThemeSelectPage> {
                 child: TextButton(
                   onPressed: () {
                     Storage.prefs.setString(StorageItem.theme, theme);
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => WelcomePage()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const WelcomePage()));
                   },
                   style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all<Color>(AppPalette.currentPalette.primary),
+                      backgroundColor: MaterialStateProperty.all<Color>(
+                          AppPalette.currentPalette.primary),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)))),
+                          RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0)))),
                   child: Text('buttons.letsgo'.tr(),
-                      style: const TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold)),
+                      style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold)),
                 ),
               ),
             )
