@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:pet_id_mobile/colors/app_palette.dart';
+import 'package:pet_id_mobile/pages/pet_create_confirmation_page.dart';
 
 import '../api/dto/responses/check_tag.dto.dart';
 import '../api/exceptions/api.exception.dart';
@@ -109,6 +110,15 @@ class _ScannerPageState extends State<ScannerPage> {
                     if (err != null) {
                       _showInfoDialog(context, 'Error',
                           'Caught error with code: ${err.code}', err.message);
+                      return;
+                    }
+
+                    if (tag!.isFree) {
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  PetCreateConfirmationPage(tagId: tag.id)));
                       return;
                     }
 
