@@ -6,6 +6,7 @@ import 'package:pet_id_mobile/components/basic_button.dart';
 import 'package:pet_id_mobile/components/basic_input.dart';
 import 'package:pet_id_mobile/components/pet_id_title.dart';
 import 'package:pet_id_mobile/pages/auth_page.dart';
+import 'package:pet_id_mobile/pages/home_page.dart';
 
 import '../api/owner_controller.dart';
 import '../shared/paths.dart';
@@ -41,7 +42,10 @@ class _LoginPageState extends State<LoginPage> {
     _openHome();
   }
 
-  void _openHome() {}
+  void _openHome() {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => const HomePage()));
+  }
 
   void _openDepressedCat() {
     Navigator.push(context,

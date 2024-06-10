@@ -46,6 +46,12 @@
   "name": "Name",
   "address": "Address",
   "description": "Description",
+  "tabs": {
+    "yourPets": "Your Pets",
+    "scanQr": "Scan QR",
+    "notifications": "Notifications",
+    "profile": "Profile"
+  },
   "ooopsie": {
     "serviceUnavailable": "Service Unavailable",
     "serviceUnavailableDescription": "Oh, no! Servers are unavailable now due to some unknown error. Wait and try again later, I don’t know when servers will available again. I only have paws... :(",

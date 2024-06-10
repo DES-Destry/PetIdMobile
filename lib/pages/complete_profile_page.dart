@@ -5,6 +5,7 @@ import 'package:pet_id_mobile/api/owner_controller.dart';
 import 'package:pet_id_mobile/colors/app_palette.dart';
 import 'package:pet_id_mobile/components/basic_button.dart';
 import 'package:pet_id_mobile/components/basic_input.dart';
+import 'package:pet_id_mobile/pages/home_page.dart';
 import 'package:pet_id_mobile/storage/storage.dart';
 import 'package:pet_id_mobile/storage/storage_item.dart';
 
@@ -47,7 +48,10 @@ class _CompleteProfilePageState extends State<CompleteProfilePage> {
     _openHome();
   }
 
-  void _openHome() {}
+  void _openHome() {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => const HomePage()));
+  }
 
   void _openDepressedCat() {
     Navigator.push(context,

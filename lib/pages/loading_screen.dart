@@ -6,6 +6,7 @@ import 'package:pet_id_mobile/api/owner_controller.dart';
 import 'package:pet_id_mobile/api/server_controller.dart';
 import 'package:pet_id_mobile/colors/app_palette.dart';
 import 'package:pet_id_mobile/pages/auth_page.dart';
+import 'package:pet_id_mobile/pages/home_page.dart';
 import 'package:pet_id_mobile/pages/login_page.dart';
 import 'package:pet_id_mobile/pages/ooopsie/confused_cat_page.dart';
 import 'package:pet_id_mobile/pages/ooopsie/depressed_cat_page.dart';
@@ -101,7 +102,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
     _ownerController.setToken(accessToken);
 
     try {
-      final ownerData = await _ownerController.auth();
+      await _ownerController.auth();
     } catch (e) {
       if (e is ApiException && e.errorResponse.status == 401) {
         _openWelcomeBack();
@@ -112,10 +113,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
       return;
     }
 
-    // TODO Open home page
-    setState(() {
-      _status = 'HOME_SHOULD_APPEAR';
-    });
+    _openHome();
   }
 
   bool _isInternetAvailable(List<ConnectivityResult> connections) {
@@ -132,6 +130,11 @@ class _LoadingScreenState extends State<LoadingScreen> {
   void _openWelcomeBack() {
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => const LoginPage()));
+  }
+
+  void _openHome() {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => const HomePage()));
   }
 
   void _openDepressedCat() {

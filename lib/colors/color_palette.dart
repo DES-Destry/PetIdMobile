@@ -11,6 +11,7 @@ abstract class ColorPalette {
   abstract final Color grayText;
 
   final Color niceHint = const Color(0xFF696969);
+  final Color grayBorder = const Color(0xFFADADAD);
 
   final Color black = const Color(0xFF000000);
   final Color white = const Color(0xFFFFFFFF);
