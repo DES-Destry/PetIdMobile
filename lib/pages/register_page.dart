@@ -4,6 +4,7 @@ import 'package:pet_id_mobile/colors/app_palette.dart';
 import 'package:pet_id_mobile/components/basic_button.dart';
 import 'package:pet_id_mobile/components/basic_input.dart';
 import 'package:pet_id_mobile/components/pet_id_title.dart';
+import 'package:pet_id_mobile/pages/complete_profile_page.dart';
 
 import '../shared/paths.dart';
 
@@ -26,7 +27,7 @@ class _RegisterPageState extends State<RegisterPage> {
         children: [
           Positioned.fill(
             child:
-                Image.asset(Paths.getImage('login-cat.png'), fit: BoxFit.cover),
+            Image.asset(Paths.getImage('login-cat.png'), fit: BoxFit.cover),
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.end,
@@ -40,7 +41,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 decoration: BoxDecoration(
                     color: AppPalette.currentPalette.background,
                     border:
-                        Border.all(color: AppPalette.currentPalette.background),
+                    Border.all(color: AppPalette.currentPalette.background),
                     borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(50),
                         topRight: Radius.circular(50))),
@@ -82,7 +83,17 @@ class _RegisterPageState extends State<RegisterPage> {
                           type: TextInputType.visiblePassword),
                       const SizedBox(height: 64.0),
                       BasicButton(
-                          content: 'createAccount'.tr(), onPressed: () => {})
+                          content: 'createAccount'.tr(), onPressed: () =>
+                      {
+                        if (password == repeatPassword) {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      CompleteProfilePage(
+                                          email: email, password: password)))
+                        }
+                      }),
                     ],
                   ),
                 ),

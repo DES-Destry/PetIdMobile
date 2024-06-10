@@ -25,8 +25,9 @@ class _BasicInputState extends State<BasicInput> {
       padding: EdgeInsetsDirectional.symmetric(horizontal: widget.padding),
       child: SizedBox(
         width: double.infinity,
-        height: 46,
+        height: widget.type == TextInputType.multiline ? 164 : 46,
         child: TextField(
+          maxLines: widget.type == TextInputType.multiline ? null : 1,
           cursorHeight: 24.0,
           enableSuggestions: true,
           textCapitalization: widget.type == TextInputType.emailAddress
