@@ -46,6 +46,7 @@
   "name": "Name",
   "address": "Address",
   "description": "Description",
+  "placeQr": "Place the QR code of the Tag in the area",
   "tab": {
     "yourPets": "Your Pets",
     "scanQr": "Scan QR",
