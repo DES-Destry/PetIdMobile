@@ -1,8 +1,14 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:pet_id_mobile/api/dto/requests/create_owner_request.dto.dart';
+import 'package:pet_id_mobile/api/owner_controller.dart';
 import 'package:pet_id_mobile/colors/app_palette.dart';
 import 'package:pet_id_mobile/components/basic_button.dart';
 import 'package:pet_id_mobile/components/basic_input.dart';
+import 'package:pet_id_mobile/storage/storage.dart';
+import 'package:pet_id_mobile/storage/storage_item.dart';
+
+import 'ooopsie/depressed_cat_page.dart';
 
 class CompleteProfilePage extends StatefulWidget {
   final String email;
@@ -16,9 +22,37 @@ class CompleteProfilePage extends StatefulWidget {
 }
 
 class _CompleteProfilePageState extends State<CompleteProfilePage> {
+  final OwnerController ownerController = OwnerController();
+
   String name = '';
   String address = '';
   String description = '';
+
+  _register() async {
+    try {
+      final tokens = await ownerController.createOwner(CreateOwnerRequestDto(
+          email: widget.email,
+          password: widget.password,
+          name: name,
+          address: address,
+          description: description));
+
+      Storage.prefs.setString(StorageItem.accessToken, tokens.accessToken);
+    } catch (e) {
+      print(e.toString());
+      _openDepressedCat();
+      return;
+    }
+
+    _openHome();
+  }
+
+  void _openHome() {}
+
+  void _openDepressedCat() {
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => const DepressedCatPage()));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -84,7 +118,7 @@ class _CompleteProfilePageState extends State<CompleteProfilePage> {
                   padding: const EdgeInsets.only(bottom: 84.0),
                   child: BasicButton(
                     content: 'buttons.createAccount'.tr(),
-                    onPressed: () {},
+                    onPressed: _register,
                   ),
                 )
               ],
