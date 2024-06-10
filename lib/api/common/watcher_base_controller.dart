@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:pet_id_mobile/api/dto/error_response.dto.dart';
+import 'package:pet_id_mobile/api/dto/responses/error_response.dto.dart';
 import 'package:pet_id_mobile/api/exceptions/api.exception.dart';
 import 'package:pet_id_mobile/api/exceptions/connection.exception.dart';
 

@@ -1,4 +1,4 @@
-import '../dto/error_response.dto.dart';
+import '../dto/responses/error_response.dto.dart';
 
 class ApiException implements Exception {
   final ErrorResponseDto errorResponse;
