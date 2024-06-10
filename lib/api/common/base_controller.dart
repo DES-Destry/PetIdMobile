@@ -34,9 +34,22 @@ abstract class BaseController {
         return response;
       }
 
+      if (response.statusCode == 401 || response.data == "") {
+        throw ApiException(
+            errorResponse: ErrorResponseDto(
+                code: "CORE.INVALID_TOKEN",
+                detail: "",
+                status: 401,
+                type: "",
+                title: "",
+                instance: "",
+                stackTrace: "",
+                traceId: ""));
+      }
       final errorResponse = ErrorResponseDto.fromJson(response.data);
       throw ApiException(errorResponse: errorResponse);
     } catch (err) {
+      if (err is ApiException) rethrow;
       throw ConnectionException();
     }
   }
@@ -60,9 +73,23 @@ abstract class BaseController {
         return response;
       }
 
+      if (response.statusCode == 401 || response.data == "") {
+        throw ApiException(
+            errorResponse: ErrorResponseDto(
+                code: "CORE.INVALID_TOKEN",
+                detail: "",
+                status: 401,
+                type: "",
+                title: "",
+                instance: "",
+                stackTrace: "",
+                traceId: ""));
+      }
+
       var errorResponse = ErrorResponseDto.fromJson(response.data);
       throw ApiException(errorResponse: errorResponse);
     } catch (err) {
+      if (err is ApiException) rethrow;
       throw ConnectionException();
     }
   }
@@ -86,9 +113,23 @@ abstract class BaseController {
         return response;
       }
 
+      if (response.statusCode == 401 || response.data == "") {
+        throw ApiException(
+            errorResponse: ErrorResponseDto(
+                code: "CORE.INVALID_TOKEN",
+                detail: "",
+                status: 401,
+                type: "",
+                title: "",
+                instance: "",
+                stackTrace: "",
+                traceId: ""));
+      }
+
       var errorResponse = ErrorResponseDto.fromJson(response.data);
       throw ApiException(errorResponse: errorResponse);
     } catch (err) {
+      if (err is ApiException) rethrow;
       throw ConnectionException();
     }
   }
@@ -111,9 +152,23 @@ abstract class BaseController {
         return response;
       }
 
+      if (response.statusCode == 401 || response.data == "") {
+        throw ApiException(
+            errorResponse: ErrorResponseDto(
+                code: "CORE.INVALID_TOKEN",
+                detail: "",
+                status: 401,
+                type: "",
+                title: "",
+                instance: "",
+                stackTrace: "",
+                traceId: ""));
+      }
+
       var errorResponse = ErrorResponseDto.fromJson(response.data);
       throw ApiException(errorResponse: errorResponse);
     } catch (err) {
+      if (err is ApiException) rethrow;
       throw ConnectionException();
     }
   }

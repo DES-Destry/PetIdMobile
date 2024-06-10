@@ -1,15 +1,16 @@
 import 'package:pet_id_mobile/api/dto/requests/create_owner_request.dto.dart';
 import 'package:pet_id_mobile/api/dto/requests/login_request.dto.dart';
 import 'package:pet_id_mobile/api/dto/responses//token_pair.dto.dart';
+import 'package:pet_id_mobile/api/dto/responses/auth_response.dto.dart';
 
 import 'common/base_controller.dart';
 
 class OwnerController extends BaseController {
   final String _basePath = 'owner';
 
-  Future<String> auth() async {
+  Future<AuthResponseDto> auth() async {
     final response = await get('$_basePath/auth');
-    return response.data;
+    return AuthResponseDto.fromJson(response.data);
   }
 
   Future<TokenPairDto> createOwner(CreateOwnerRequestDto dto) async {

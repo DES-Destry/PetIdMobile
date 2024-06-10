@@ -4,11 +4,13 @@ import 'package:pet_id_mobile/colors/app_palette.dart';
 class BasicInput extends StatefulWidget {
   String hint;
   TextInputType type;
-  String content = '';
+  String content;
   double padding;
+  final ValueChanged<String> onChanged;
 
   BasicInput(
       {super.key,
+      required this.onChanged,
       this.hint = '',
       this.type = TextInputType.text,
       this.content = '',
@@ -69,11 +71,7 @@ class _BasicInputState extends State<BasicInput> {
             filled: true,
             fillColor: AppPalette.currentPalette.inputBackground,
           ),
-          onChanged: (text) => {
-            setState(() {
-              widget.content = text;
-            })
-          },
+          onChanged: widget.onChanged,
         ),
       ),
     );

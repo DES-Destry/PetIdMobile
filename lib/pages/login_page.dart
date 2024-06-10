@@ -28,6 +28,11 @@ class _LoginPageState extends State<LoginPage> {
   String password = '';
 
   _login() async {
+    if (email == '') {
+      print('Empty state');
+      return;
+    }
+
     try {
       final tokens = await ownerController
           .login(LoginRequestDto(email: email, password: password));
@@ -103,14 +108,26 @@ class _LoginPageState extends State<LoginPage> {
                               letterSpacing: -0.01)),
                       const SizedBox(height: 28.0),
                       BasicInput(
-                          hint: 'email'.tr(),
-                          content: email,
-                          type: TextInputType.emailAddress),
+                        hint: 'email'.tr(),
+                        content: email,
+                        type: TextInputType.emailAddress,
+                        onChanged: (text) {
+                          setState(() {
+                            email = text;
+                          });
+                        },
+                      ),
                       const SizedBox(height: 16.0),
                       BasicInput(
-                          hint: 'password'.tr(),
-                          content: password,
-                          type: TextInputType.visiblePassword),
+                        hint: 'password'.tr(),
+                        content: password,
+                        type: TextInputType.visiblePassword,
+                        onChanged: (text) {
+                          setState(() {
+                            password = text;
+                          });
+                        },
+                      ),
                       const SizedBox(height: 64.0),
                       BasicButton(
                           content: 'buttons.login'.tr(), onPressed: _login)

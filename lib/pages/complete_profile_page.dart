@@ -30,6 +30,11 @@ class _CompleteProfilePageState extends State<CompleteProfilePage> {
   String description = '';
 
   _register() async {
+    if (widget.email == '') {
+      print('Empty state');
+      return;
+    }
+
     try {
       final tokens = await ownerController.createOwner(CreateOwnerRequestDto(
           email: widget.email,
@@ -92,6 +97,12 @@ class _CompleteProfilePageState extends State<CompleteProfilePage> {
                         content: name,
                         type: TextInputType.name,
                         hint: 'name'.tr(),
+                        onChanged: (text) {
+                          print('Name: $text');
+                          setState(() {
+                            name = text;
+                          });
+                        },
                       ),
                       const SizedBox(height: 20),
                       BasicButton(
@@ -107,12 +118,22 @@ class _CompleteProfilePageState extends State<CompleteProfilePage> {
               hint: 'address'.tr(),
               content: address,
               type: TextInputType.streetAddress,
+              onChanged: (text) {
+                setState(() {
+                  address = text;
+                });
+              },
             ),
             const SizedBox(height: 16.0),
             BasicInput(
               hint: 'description'.tr(),
               content: description,
               type: TextInputType.multiline,
+              onChanged: (text) {
+                setState(() {
+                  description = text;
+                });
+              },
             ),
             const SizedBox(height: 64.0),
             Column(

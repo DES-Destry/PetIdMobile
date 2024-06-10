@@ -27,7 +27,7 @@ class _RegisterPageState extends State<RegisterPage> {
         children: [
           Positioned.fill(
             child:
-            Image.asset(Paths.getImage('login-cat.png'), fit: BoxFit.cover),
+                Image.asset(Paths.getImage('login-cat.png'), fit: BoxFit.cover),
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.end,
@@ -41,7 +41,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 decoration: BoxDecoration(
                     color: AppPalette.currentPalette.background,
                     border:
-                    Border.all(color: AppPalette.currentPalette.background),
+                        Border.all(color: AppPalette.currentPalette.background),
                     borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(50),
                         topRight: Radius.circular(50))),
@@ -68,32 +68,52 @@ class _RegisterPageState extends State<RegisterPage> {
                               letterSpacing: -0.01)),
                       const SizedBox(height: 28.0),
                       BasicInput(
-                          hint: 'email'.tr(),
-                          content: email,
-                          type: TextInputType.emailAddress),
+                        hint: 'email'.tr(),
+                        content: email,
+                        type: TextInputType.emailAddress,
+                        onChanged: (text) {
+                          setState(() {
+                            email = text;
+                          });
+                        },
+                      ),
                       const SizedBox(height: 16.0),
                       BasicInput(
-                          hint: 'password'.tr(),
-                          content: password,
-                          type: TextInputType.visiblePassword),
+                        hint: 'password'.tr(),
+                        content: password,
+                        type: TextInputType.visiblePassword,
+                        onChanged: (text) {
+                          setState(() {
+                            password = text;
+                          });
+                        },
+                      ),
                       const SizedBox(height: 16.0),
                       BasicInput(
-                          hint: 'repeatPassword'.tr(),
-                          content: repeatPassword,
-                          type: TextInputType.visiblePassword),
+                        hint: 'repeatPassword'.tr(),
+                        content: repeatPassword,
+                        type: TextInputType.visiblePassword,
+                        onChanged: (text) {
+                          setState(() {
+                            repeatPassword = text;
+                          });
+                        },
+                      ),
                       const SizedBox(height: 64.0),
                       BasicButton(
-                          content: 'createAccount'.tr(), onPressed: () =>
-                      {
-                        if (password == repeatPassword) {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      CompleteProfilePage(
-                                          email: email, password: password)))
-                        }
-                      }),
+                          content: 'createAccount'.tr(),
+                          onPressed: () => {
+                                if (password == repeatPassword)
+                                  {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                CompleteProfilePage(
+                                                    email: email,
+                                                    password: password)))
+                                  }
+                              }),
                     ],
                   ),
                 ),

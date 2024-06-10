@@ -46,7 +46,7 @@
   "name": "Name",
   "address": "Address",
   "description": "Description",
-  "tabs": {
+  "tab": {
     "yourPets": "Your Pets",
     "scanQr": "Scan QR",
     "notifications": "Notifications",
