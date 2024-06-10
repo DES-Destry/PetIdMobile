@@ -1,12 +1,17 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:pet_id_mobile/api/dto/requests/login_request.dto.dart';
 import 'package:pet_id_mobile/colors/app_palette.dart';
 import 'package:pet_id_mobile/components/basic_button.dart';
 import 'package:pet_id_mobile/components/basic_input.dart';
 import 'package:pet_id_mobile/components/pet_id_title.dart';
 import 'package:pet_id_mobile/pages/auth_page.dart';
 
+import '../api/owner_controller.dart';
 import '../shared/paths.dart';
+import '../storage/storage.dart';
+import '../storage/storage_item.dart';
+import 'ooopsie/depressed_cat_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -16,8 +21,32 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final OwnerController ownerController = OwnerController();
+
   String email = '';
   String password = '';
+
+  _login() async {
+    try {
+      final tokens = await ownerController
+          .login(LoginRequestDto(email: email, password: password));
+
+      Storage.prefs.setString(StorageItem.accessToken, tokens.accessToken);
+    } catch (e) {
+      print(e.toString());
+      _openDepressedCat();
+      return;
+    }
+
+    _openHome();
+  }
+
+  void _openHome() {}
+
+  void _openDepressedCat() {
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => const DepressedCatPage()));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +109,7 @@ class _LoginPageState extends State<LoginPage> {
                           type: TextInputType.visiblePassword),
                       const SizedBox(height: 64.0),
                       BasicButton(
-                          content: 'buttons.login'.tr(), onPressed: () => {})
+                          content: 'buttons.login'.tr(), onPressed: _login)
                     ],
                   ),
                 ),
