@@ -83,7 +83,6 @@ class _CompleteProfilePageState extends State<CompleteProfilePage> {
           children: [
             const SizedBox(height: 32.0),
             Row(
-              // crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 SizedBox(
                     width: 88,
