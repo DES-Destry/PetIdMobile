@@ -14,9 +14,8 @@ import 'ooopsie/depressed_cat_page.dart';
 
 class CreatePetPage extends StatefulWidget {
   final int tagId;
-  final String tagCode;
 
-  const CreatePetPage({super.key, required this.tagId, required this.tagCode});
+  const CreatePetPage({super.key, required this.tagId});
 
   @override
   State<CreatePetPage> createState() => _CreatePetPageState();
@@ -42,7 +41,7 @@ class _CreatePetPageState extends State<CreatePetPage> {
           isCastrated: isCastrated == 'Yes',
           description: description));
       await petController.attachPet(
-          AttachPetRequestDto(petId: pet.petId, tagCode: widget.tagCode));
+          AttachPetRequestDto(petId: pet.petId, tagId: widget.tagId));
     } catch (e) {
       print(e.toString());
       _openDepressedCat();

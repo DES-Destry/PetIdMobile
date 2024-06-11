@@ -117,8 +117,9 @@ class _ScannerPageState extends State<ScannerPage> {
                       Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                              builder: (context) =>
-                                  PetCreateConfirmationPage(tagId: tag.id)));
+                              builder: (context) => PetCreateConfirmationPage(
+                                    tagId: tag.id,
+                                  )));
                       return;
                     }
 
