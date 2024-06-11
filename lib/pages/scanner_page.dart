@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:pet_id_mobile/colors/app_palette.dart';
 import 'package:pet_id_mobile/pages/pet_create_confirmation_page.dart';
+import 'package:pet_id_mobile/pages/pet_info_page.dart';
 
 import '../api/dto/responses/check_tag.dto.dart';
 import '../api/exceptions/api.exception.dart';
@@ -123,10 +124,10 @@ class _ScannerPageState extends State<ScannerPage> {
                       return;
                     }
 
-                    // Navigator.pushReplacement(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //         builder: (context) => TagScreen(tag: tag!)));
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => PetInfoPage(tagId: tag.id)));
                   });
                 },
               ),
