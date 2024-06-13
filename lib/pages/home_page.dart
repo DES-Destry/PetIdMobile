@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:pet_id_mobile/pages/scanner_page.dart';
 import 'package:pet_id_mobile/shared/paths.dart';
 
 import '../colors/app_palette.dart';
@@ -87,7 +88,10 @@ class _HomePageState extends State<HomePage> {
                         ),
                         GestureDetector(
                           onTap: () {
-                            // Open scanner
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const ScannerPage()));
                           },
                           child: Column(
                             children: [

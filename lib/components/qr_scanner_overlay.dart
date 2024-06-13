@@ -56,7 +56,7 @@ class QRScannerOverlay extends StatelessWidget {
               child: Text('placeQr'.tr(),
                   style: TextStyle(
                       fontSize: 16,
-                      color: AppPalette.currentPalette.primary,
+                      color: AppPalette.currentPalette.white,
                       fontWeight: FontWeight.bold))),
         ],
       )

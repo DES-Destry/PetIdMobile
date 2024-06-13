@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
@@ -32,7 +33,9 @@ class _ScannerPageState extends State<ScannerPage> {
     final String link = result.raw[0]['rawValue'];
 
     final parts = link.split('/');
+    print(link);
     final code = parts.last;
+    print(code);
 
     try {
       final CheckTagDto checkResult = await _tagController.checkTag(code);
@@ -84,7 +87,7 @@ class _ScannerPageState extends State<ScannerPage> {
       appBar: AppBar(
         foregroundColor: AppPalette.currentPalette.white,
         backgroundColor: AppPalette.currentPalette.primary,
-        title: Text('tag.scanQr',
+        title: Text('tab.scanQr'.tr(),
             style: TextStyle(
                 color: AppPalette.currentPalette.text,
                 fontWeight: FontWeight.bold)),
